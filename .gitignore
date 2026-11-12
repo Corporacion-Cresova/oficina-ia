@@ -1,0 +1,15 @@
+node_modules
+data
+.env
+.env.*
+!.env.example
+deploy
+renders-prueba
+secrets.json
+*.pdf
+*.tgz
+*.mp4
+*.mov
+credenciales*.txt
+.claude
+__pycache__

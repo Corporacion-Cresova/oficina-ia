@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oficina Cresova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Press+Start+2P&family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&family=Geist+Mono:wght@400;500;700&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="negocio.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/oficina" aria-label="Oficina Cresova">
+      <span class="logo">C</span>
+      <span class="brand-text"><b>Cresova</b><small>Oficina IA</small></span>
+    </a>
+
+
+    <div class="top-right">
+      <span id="mode" class="pill" hidden>MODO DEMO</span>
+      <button id="demo-day" class="btn" hidden>▶ Simular un día</button>
+      <button id="run-all" class="btn" hidden>▶ Todos a trabajar</button>
+      <span id="clock" class="clock"></span>
+    </div>
+  </header>
+
+<div class="shell">
+      <aside class="sidebar">
+      <nav class="tabs" id="tabs" aria-label="Secciones">
+        <a class="tab" href="#/bandeja" data-tab="hoy">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M3 13l3-8h12l3 8v6H3z"/><path d="M3 13h5l1 3h6l1-3h5"/></svg>
+          <span>Hoy</span><i class="tbadge" id="badge-sec-hoy"></i>
+        </a>
+        <a class="tab" href="#/ventas" data-tab="ventas">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M3 5h18l-7 8v5l-4 2v-7z"/></svg>
+          <span>Ventas</span><i class="tbadge" id="badge-sec-ventas"></i>
+        </a>
+        <a class="tab" href="#/proyectos" data-tab="proyectos">
+          <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="10" rx="1"/><rect x="17" y="4" width="4" height="13" rx="1"/></svg>
+          <span>Proyectos</span><i class="tbadge" id="badge-sec-proyectos"></i>
+        </a>
+        <a class="tab" href="#/estudio" data-tab="marketing">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M3 11l14-6v14L3 13z"/><path d="M7 13v5a2 2 0 0 0 4 0v-4M19 9a3 3 0 0 1 0 6"/></svg>
+          <span>Marketing</span><i class="tbadge" id="badge-sec-marketing"></i>
+        </a>
+        <a class="tab" href="#/analiticas" data-tab="numeros">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          <span>Números</span><i class="tbadge" id="badge-sec-numeros"></i>
+        </a>
+        <a class="tab" href="#/oficina" data-tab="equipo">
+          <svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/></svg>
+          <span>Equipo</span><i class="tbadge" id="badge-sec-equipo"></i>
+        </a>
+      </nav>
+    </aside>
+<div class="content">
+  <div id="subnavs">
+    <nav class="subnav" data-sec="hoy" hidden aria-label="hoy"><a href="#/bandeja" data-sub="bandeja">Bandeja<i class="tbadge bad" id="badge-bandeja"></i></a><a href="#/pendientes" data-sub="pendientes">Pendientes<i class="tbadge " id="badge-pendientes"></i></a></nav>
+    <nav class="subnav" data-sec="ventas" hidden aria-label="ventas"><a href="#/ventas" data-sub="ventas">Pipeline</a><a href="#/ventas/seguimientos" data-sub="ventas/seguimientos">Seguimientos<i class="tbadge " id="v-badge-seg"></i></a><a href="#/llamadas" data-sub="llamadas">Llamadas<i class="tbadge " id="badge-llamadas"></i></a><a href="#/cotizaciones" data-sub="cotizaciones">Cotizaciones</a><a href="#/clientes" data-sub="clientes">Clientes</a><a href="#/prospeccion" data-sub="prospeccion">Prospección</a><a href="#/ventas/lab" data-sub="ventas/lab">Ajustes de ventas</a></nav>
+    <nav class="subnav" data-sec="proyectos" hidden aria-label="proyectos"><a href="#/proyectos" data-sub="proyectos">Tablero</a><a href="#/desarrollo" data-sub="desarrollo">Demos y sitios</a></nav>
+    <nav class="subnav" data-sec="marketing" hidden aria-label="marketing"><a href="#/estudio" data-sub="estudio">Contenido<i class="tbadge warn" id="badge-estudio"></i></a><a href="#/pauta" data-sub="pauta">Pauta</a><a href="#/publicacion" data-sub="publicacion">Publicación</a></nav>
+    <nav class="subnav" data-sec="numeros" hidden aria-label="numeros"><a href="#/analiticas" data-sub="analiticas">Analíticas</a><a href="#/ceo" data-sub="ceo">CEO</a><a href="#/tesoreria" data-sub="tesoreria">Tesorería<i class="tbadge warn" id="badge-tesoreria"></i></a></nav>
+    <nav class="subnav" data-sec="equipo" hidden aria-label="equipo"><a href="#/oficina" data-sub="oficina">Oficina<i class="tbadge " id="badge-oficina"></i></a><a href="#/chat" data-sub="chat">Chat<i class="tbadge info" id="badge-chat"></i></a><a href="#/equipo" data-sub="equipo">Agentes<i class="tbadge ok" id="badge-equipo"></i></a><a href="#/tablero" data-sub="tablero">Tablero<i class="tbadge warn" id="badge-tablero"></i></a><a href="#/actividad" data-sub="actividad">Actividad</a><a href="#/sistema" data-sub="sistema">Conexiones y llaves<i class="tbadge warn" id="badge-conexiones"></i></a><a href="#/ajustes" data-sub="ajustes">Ajustes</a></nav>
+    <i id="badge-sistema" hidden></i>
+  </div>
+  <main id="views">
+    <!-- OFICINA -->
+    <section class="view" data-view="oficina">
+      <div class="stats" id="stats"></div>
+      <div id="alert" class="alerts" hidden></div>
+      <div class="stage-card">
+        <div id="stage" class="stage">
+          <canvas id="office"></canvas>
+          <div id="overlay" class="overlay"></div>
+        </div>
+        <div id="ticker" class="ticker"></div>
+      </div>
+    </section>
+
+    <!-- TABLERO -->
+    <section class="view" data-view="tablero">
+      <header class="view-head">
+        <div><h1>Tablero</h1><p>Cada tarea va de pendiente a hecha. Jarvis las reparte desde el chat; vos aprobás lo que llega a "Espera aprobación".</p></div>
+        <button class="btn principal" id="task-new">+ Nueva tarea</button>
+      </header>
+      <div id="board" class="board"></div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section class="view" data-view="equipo">
+      <header class="view-head">
+        <div><h1>Equipo</h1><p>El equipo de marketing y ventas, y Luis y Ashley de Desarrollo: qué hacen, cuándo trabajan y con qué herramientas.</p></div>
+      </header>
+      <div id="team" class="team"></div>
+    </section>
+
+    <!-- BANDEJA -->
+    <section class="view" data-view="bandeja">
+      <header class="view-head">
+        <div><h1>Bandeja</h1><p>Solo lo que necesita tu decisión. Los videos se aprueban en el Estudio y los informes se leen cuando quieras.</p></div>
+      </header>
+      <section id="approvals-box" class="panel-block" hidden>
+        <h2>Acciones por aprobar <span id="approvals-count" class="count"></span></h2>
+        <div id="approvals" class="approvals"></div>
+      </section>
+      <div id="inbox-videos"></div>
+      <section class="panel-block">
+        <h2>Por decidir <span id="decisions-count" class="count"></span></h2>
+        <div id="decisions" class="decisions"></div>
+      </section>
+      <section class="panel-block">
+        <h2>Reportes del equipo</h2><p class="note">No se aprueban: con leerlos (o tocar ✓ Leído) salen de "Sin leer".</p>
+        <div id="report-filters" class="chips"></div>
+        <div id="reports" class="rows"></div>
+      </section>
+    </section>
+
+    <!-- ESTUDIO -->
+    <section class="view" data-view="estudio">
+      <header class="studio-head">
+        <div><h1>Estudio</h1><p id="studio-slot" class="slot-line"></p></div>
+        <div id="studio-kpis" class="kpis"></div>
+      </header>
+      <div class="studio-layout">
+        <main class="studio-main">
+          <div id="studio-filters" class="tabs"></div>
+          <div id="studio-grid" class="studio-grid"></div>
+        </main>
+        <aside class="studio-side">
+          <section id="linea" class="panel-block linea"></section>
+          <section id="calendario" class="panel-block cal"></section>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VENTAS -->
+    <section class="view ventas-view" data-view="ventas">
+      <nav class="v-tabs" aria-label="Ventas">
+        <button class="v-tab" data-vtab="clientes">Clientes</button>
+        <button class="v-tab" data-vtab="seguimientos">Seguimientos</button>
+        <button class="v-tab" data-vtab="lab">Laboratorio</button>
+        <button class="v-tab" data-vtab="playbook">Playbook y reglas</button>
+      </nav>
+      <section id="v-live" class="panel-block v-live"></section>
+
+      <div class="vt" data-vt="clientes">
+        <div id="v-kpis" class="v-kpis"></div>
+        <div id="v-filtros" class="chips v-filtros"></div>
+        <div id="v-board" class="v-board"></div>
+        <div id="v-otros" class="v-otros"></div>
+      </div>
+
+      <div class="vt" data-vt="seguimientos" hidden>
+        <div class="v-seg-grid">
+          <section class="panel-block">
+            <h2>Próximos envíos</h2>
+            <p class="note" id="v-seg-horario"></p>
+            <div id="v-agenda" class="v-agenda"></div>
+          </section>
+          <section class="panel-block">
+            <h2>Pasos del seguimiento</h2>
+            <p class="note">Si el cliente deja de responder, el vendedor le vuelve a escribir en cada paso. Si responde, los pasos se detienen y retoma la conversación.</p>
+            <div id="v-pasos" class="v-pasos"></div>
+            <div class="actions"><button class="btn" data-vpaso-add="1">＋ Agregar paso</button><button class="btn ok" data-vpasos-save="1">Guardar pasos</button><span id="v-pasos-msg" class="note"></span></div>
+          </section>
+        </div>
+      </div>
+
+      <div class="vt" data-vt="lab" hidden>
+        <section class="panel-block v-lab">
+          <div class="v-lab-head">
+            <div><h2>Probador del vendedor</h2><p class="note">Escribile como si fueras un cliente y mirá cómo responde "Diego Villalta". Nada sale a WhatsApp ni al sistema.</p></div>
+            <div class="v-model">
+              <label>Cerebro<select id="v-motor"><option value="plan">Plan de Claude primero (OpenRouter de respaldo)</option><option value="openrouter">Solo OpenRouter</option></select></label>
+              <label>Modelo de respaldo<select id="v-model"></select></label>
+              <label>Temp.<input id="v-temp" type="number" step="0.1" min="0" max="1.5"></label>
+              <span id="v-cost" class="v-cost"></span>
+            </div>
+          </div>
+          <div class="v-lab-grid">
+            <div>
+              <button class="btn ok" data-vnew="1">＋ Cliente de prueba</button>
+              <details class="v-adbox"><summary>Simular que viene de un anuncio</summary>
+                <input id="v-ad" maxlength="200" placeholder="Título del anuncio, ej.: Tu barbería en Google">
+              </details>
+              <h3>Pruebas</h3><div id="v-convs" class="v-list"></div>
+            </div>
+            <div>
+              <h3>Casos reales de Velforce <small id="v-cases-n"></small></h3>
+              <div id="v-cases" class="v-list v-cases-list"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="vt" data-vt="playbook" hidden>
+        <section class="panel-block">
+          <h2>Playbook del vendedor <small id="v-pb-info"></small></h2>
+          <textarea id="v-playbook" rows="16" class="v-pb"></textarea>
+          <div class="actions"><button class="btn ok" data-vpb="1">Guardar playbook</button><span id="v-pb-msg" class="note"></span></div>
+          <h2 style="margin-top:16px">Cuenta para el anticipo</h2>
+          <p class="note">La que el vendedor le manda al cliente cuando quiere arrancar, con el monto exacto (50 % de su cotización). Escribila como querés que la lea el cliente: banco, tipo de cuenta, número y a nombre de quién.</p>
+          <textarea id="v-cuenta" rows="4" class="v-pb" placeholder="Banco Atlántida · Cuenta de ahorro · 1234567890 · A nombre de Cresova"></textarea>
+          <div class="actions"><button class="btn ok" data-vcuenta="1">Guardar cuenta</button><span id="v-cuenta-msg" class="note"></span></div>
+          <p class="note">Imagen de las cuentas (opcional): sale junto con el mensaje del monto, para que se vea más bonito.</p>
+          <div class="v-cuenta-img"><img id="v-cuenta-img" alt="Imagen de las cuentas" hidden><span id="v-cuenta-img-vacia" class="note">Todavía no subiste la imagen.</span></div>
+          <div class="actions"><input type="file" id="v-cuenta-file" accept="image/*" hidden><button class="btn" data-vcuenta-subir="1">Subir imagen</button><button class="btn no" data-vcuenta-quitar="1">Quitar</button><span id="v-cuenta-img-msg" class="note"></span></div>
+          <h2 style="margin-top:16px">Reglas aprendidas</h2>
+          <div id="v-rules" class="rows"></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- DESARROLLO -->
+    <section class="view dev-view" data-view="desarrollo">
+      <div id="dev-lista">
+        <header class="view-head">
+          <div><h1>Desarrollo</h1><p>Los sitios de los clientes. Tocá uno para pedirle cambios al constructor y ver la vista previa en vivo.</p></div>
+          <button class="btn principal" data-dev-nuevo="1">+ Nuevo proyecto</button>
+        </header>
+        <form id="dev-form" class="panel-block dev-form" hidden>
+          <h2>Nuevo proyecto</h2>
+          <div class="dev-form-grid">
+            <label>Nombre del negocio<input name="nombre" required maxlength="80" placeholder="Taller Ruiz"></label>
+            <label>Rubro<input name="rubro" maxlength="80" placeholder="Taller mecánico"></label>
+            <label>Ciudad<input name="ciudad" maxlength="80" placeholder="San Pedro Sula"></label>
+            <label>WhatsApp del negocio<input name="whatsapp" maxlength="20" placeholder="50499999999"></label>
+          </div>
+          <label>Lo que sabés del cliente<textarea name="brief" rows="5" maxlength="6000" placeholder="Servicios, precios, horarios, dirección, redes, qué lo hace distinto, colores que le gustan…"></textarea></label>
+          <label>Sitios de referencia que te gustan (opcional, uno por línea)<textarea name="referencias" rows="2" maxlength="1000" placeholder="https://…"></textarea></label>
+          <label>Brief completo, como el que usás en Lovable (opcional: si lo pegás, el constructor lo sigue al pie de la letra)<textarea name="pedido" rows="6" maxlength="20000" placeholder="Ej.: que tenga catálogo de repuestos con precios y un botón para agendar cita"></textarea></label>
+          <div class="actions"><button class="btn ok" type="submit">Crear y armar la demo</button><button class="btn" type="button" data-dev-cancelar="1">Cancelar</button><span id="dev-form-msg" class="note"></span></div>
+        </form>
+        <div id="dev-filtros" class="chips"></div>
+        <div id="dev-grid" class="dev-grid"></div>
+      </div>
+
+      <div id="dev-proyecto" class="dev-proyecto" hidden>
+        <section class="dev-chat">
+          <header class="dev-chat-head">
+            <button class="btn sm" data-dev-volver="1" aria-label="Volver a la lista">←</button>
+            <div><b id="dev-nombre"></b><small id="dev-sub"></small></div>
+            <select id="dev-estado" title="Estado del proyecto">
+              <option value="nuevo">Nuevo</option><option value="armando">Armando</option><option value="demo">Demo lista</option><option value="enviada">Enviada al cliente</option>
+              <option value="aprobada">Aprobada</option><option value="publicada">Publicada</option><option value="archivada">Archivada</option>
+            </select>
+          </header>
+          <div id="dev-msgs" class="dev-msgs"></div>
+          <div id="dev-trabajo" class="dev-trabajo" hidden><span class="spin"></span><span></span><button class="link" data-dev-detener="1">Detener</button></div>
+          <div class="dev-tools"><label class="btn sm">📎 Fotos del cliente<input type="file" id="dev-fotos" accept="image/*" multiple hidden></label><button class="btn sm" data-dev-cancelenvio="1" hidden>✖ Cancelar envío programado</button><button class="btn sm ok" data-dev-enviar="1" hidden title="Le manda el enlace al cliente por WhatsApp desde el número de ventas">📲 Enviar al cliente</button><button class="btn sm" data-dev-revisar="1" title="Otro agente califica el sitio y el constructor corrige lo que encuentre">Revisión de calidad</button><span id="dev-calidad" class="note"></span></div>
+          <form id="dev-chat-form" class="dev-chat-form"><textarea id="dev-input" rows="2" maxlength="6000" placeholder="Pedile un cambio… (Enter envía, Shift+Enter salto de línea)"></textarea><button class="btn ok">Enviar</button></form>
+        </section>
+        <section class="dev-preview">
+          <div class="dev-bar">
+            <div class="dev-devices"><button class="tab-btn on" data-dev-device="computadora">Computadora</button><button class="tab-btn" data-dev-device="celular">Celular</button></div>
+            <a id="dev-url" class="dev-url" target="_blank" rel="noopener"></a>
+            <button class="btn sm" data-dev-recargar="1" title="Recargar la vista previa">↻</button>
+            <details class="dev-versiones"><summary class="btn sm">Versiones</summary><div id="dev-versiones-list"></div></details>
+          </div>
+          <div class="dev-frame-wrap" id="dev-frame-wrap"><iframe id="dev-frame" title="Vista previa del sitio"></iframe></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- CHAT -->
+    <section class="view chat-view" data-view="chat" id="chat-view">
+      <aside id="chat-list" class="chat-list" aria-label="Conversaciones"></aside>
+      <div class="chat-pane">
+        <header id="chat-head" class="chat-head"></header>
+        <div id="chat-msgs" class="chat-msgs" aria-live="polite"></div>
+        <div id="chat-typing" class="chat-typing" hidden></div>
+        <div id="chat-mentions" class="chat-mentions" hidden></div>
+        <form id="chat-form" class="chat-form">
+          <textarea id="chat-input" rows="2" maxlength="4000" placeholder="Escribile al agente… (Enter envía, Shift+Enter salto de línea)"></textarea>
+          <button class="btn ok" id="chat-send" type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ACTIVIDAD -->
+    <section class="view" data-view="actividad">
+      <header class="view-head">
+        <div><h1>Actividad</h1><p>Todo lo que hacen los agentes, en orden.</p></div>
+      </header>
+      <div id="activity-filters" class="chips"></div>
+      <div id="activity" class="timeline"></div>
+    </section>
+
+    <!-- SISTEMA -->
+    <section class="view" data-view="sistema">
+      <header class="view-head">
+        <div><h1>Sistema</h1><p>Conexiones, horarios y consumo.</p></div>
+        <button class="btn" id="status-refresh">↻ Volver a comprobar</button>
+      </header>
+      <div id="sys-resumen" class="sys-resumen"></div>
+      <div class="sys-grid">
+        <details class="panel-block keys-block" id="keys-det"><summary><h2>Llaves de los servicios</h2></summary><p class="note" style="margin:-4px 0 6px">Pegá cada llave acá. Se guarda solo en el servidor de la oficina: nadie (ni los agentes) puede volver a verla completa.</p><div id="sys-keys"></div></details>
+        <section class="panel-block"><h2>Conexiones</h2><div id="sys-conn" class="conn-list"></div></section>
+        <section class="panel-block"><h2>Horarios</h2><div id="sys-sched"></div></section>
+        <section class="panel-block"><h2>Consumo</h2><div id="sys-cost"></div></section>
+        <section class="panel-block"><h2>Estudio de video</h2><div id="sys-renders"></div></section>
+      </div>
+    </section>
+
+    <!-- AJUSTES -->
+    <section class="view" data-view="ajustes">
+      <header class="view-head">
+        <div><h1>Ajustes</h1><p>Manejá al equipo sin tocar código. Los cambios se aplican desde la próxima corrida.</p></div>
+      </header>
+      <section class="panel-block" id="set-global" data-form="global"></section>
+      <section class="panel-block">
+        <h2>Agentes</h2>
+        <div id="set-agents" class="set-agents"></div>
+      </section>
+      <section class="panel-block">
+        <h2>Conocimiento de Cresova</h2>
+        <p class="note lead">Lo que todos los agentes saben de tu negocio: oferta, precios, tono y qué nunca deben prometer. Lo leen antes de cada trabajo.</p>
+        <div id="set-knowledge" data-form="knowledge"></div>
+      </section>
+      <section class="panel-block">
+        <h2>Presupuesto de Claude</h2>
+        <p class="note lead">Cuánto de tu plan puede usar la oficina. Al pasar el tope, el equipo se frena solo (no produce ni corre sus turnos) y el resto queda para vos; tus pedidos en el chat siguen funcionando. Vuelve sola cuando se renueva la ventana.</p>
+        <div id="presupuesto" class="presupuesto"></div>
+      </section>
+      <section class="panel-block">
+        <h2>Autonomía de la oficina</h2>
+        <p class="note lead">Lo que el equipo hace solo, sin pasar por tu Bandeja. Lo que se sale de estos límites te lo pregunta.</p>
+        <div id="autonomia" class="presupuesto"><p class="note">Cargando…</p></div>
+      </section>
+      <section class="panel-block">
+        <h2>WhatsApp de ventas</h2>
+        <p class="note lead">El número que atiende a los clientes y por donde Jarvis te escribe. Si se desconecta, te aviso por Discord; al reconectarlo se procesan solos los mensajes que llegaron mientras tanto.</p>
+        <div id="wa-conexion" class="presupuesto"><p class="note">Cargando…</p></div>
+      </section>
+      <section class="panel-block">
+        <h2>Gasto de la voz de Jarvis (ElevenLabs)</h2>
+        <p class="note lead">Cada minuto con la sesión de voz abierta se cobra (voz + el modelo que piensa), hable o no. La sesión se cierra sola tras 20 s sin que nadie hable y se vuelve a abrir al instante cuando hablás.</p>
+        <div id="voz-gasto" class="presupuesto"><p class="note">Cargando…</p></div>
+      </section>
+      <section class="panel-block">
+        <h2>Lo que el equipo aprendió de vos</h2>
+        <p class="note lead">Indicaciones permanentes que diste en los chats ("digan 1 a 2 días, no 24 a 48 h"). Entran en las instrucciones de quien corresponda, también del vendedor de WhatsApp. Si algo ya no va, borralo.</p>
+        <form id="mem-form" class="mem-form"><input id="mem-text" maxlength="600" placeholder="Agregar una indicación a mano…"><select id="mem-para"><option value="todos">Todos</option><option value="marketing">Marketing</option><option value="ventas">Ventas</option><option value="vendedor">Vendedor (WhatsApp)</option></select><button class="btn ok">Guardar</button></form>
+        <div id="mem-list" class="rows"></div>
+      </section>
+      <section class="panel-block">
+        <h2>Manual de contenido</h2>
+        <p class="note lead">La memoria de Marketing: ángulos ganadores, qué funciona, qué no y experimentos. Valeria lo actualiza cada semana con datos; cada versión queda en el historial.</p>
+        <div id="set-manual" data-form="manual"></div>
+      </section>
+      <section class="panel-block">
+        <h2>Instrucciones de cada agente</h2>
+        <p class="note lead">Qué hace cada rol, paso a paso y con qué formato entrega.</p>
+        <div id="set-prompt-chips" class="chips"></div>
+        <div id="set-prompt" data-form="prompt"></div>
+      </section>
+    </section>
+
+    <!-- NEGOCIO (base propia de Cresova) -->
+    <section class="view" data-view="cotizaciones"><div id="ng-cotizaciones" class="ng"></div></section>
+    <section class="view" data-view="proyectos">
+      <div class="ng">
+        <section class="cz-wrap">
+          <header class="cz-head"><div><h1>Proyectos</h1><p class="note">Las cotizaciones de Cresova, por etapa, en la base propia de la oficina. Arrastrá una tarjeta o usá "Mover a…". <span id="cz-corte"></span></p></div><label class="chip"><input type="checkbox" id="cz-entregados"> Ver entregados</label></header>
+          <div id="cz-board" class="v-board cz-board"></div>
+        </section>
+      </div>
+    </section>
+    <section class="view" data-view="tesoreria"><div id="ng-tesoreria" class="ng"></div></section>
+    <section class="view" data-view="clientes"><div id="ng-clientes" class="ng"></div></section>
+    <section class="view" data-view="pendientes"><div id="ng-pendientes" class="ng"></div></section>
+    <section class="view" data-view="prospeccion"><div id="pr-root" class="ng"></div></section>
+    <section class="view" data-view="pauta"><div id="pa-root" class="ng"></div></section>
+    <section class="view" data-view="ceo"><div id="ng-ceo" class="ng"></div></section>
+    <section class="view" data-view="publicacion"><div id="ng-publicacion" class="ng"></div></section>
+    <section class="view" data-view="llamadas"><div id="ng-llamadas" class="ng"></div></section>
+    <section class="view" data-view="analiticas"><div id="ng-analiticas" class="ng"></div></section>
+  </main>
+</div>
+</div>
+
+  <dialog id="doc">
+    <form method="dialog"><button class="btn close" aria-label="Cerrar">✕</button></form>
+    <div class="doc-actions"><a id="doc-pdf" class="btn sm ok" target="_blank" rel="noopener">📄 Descargar PDF</a><a id="doc-ver" class="btn sm" target="_blank" rel="noopener">Ver como documento</a></div>
+    <article id="doc-body" class="doc"></article>
+    <footer id="doc-review" class="review">
+      <div id="review-status" class="review-status"></div>
+      <textarea id="review-note" rows="2" maxlength="2000" placeholder="Nota para el agente: qué cambiar o qué te gustó. Queda guardada para su próximo trabajo."></textarea>
+      <label class="chk"><input type="checkbox" id="review-rerun" checked> Si pido cambios, que lo rehaga ahora</label>
+      <div id="review-options" class="actions"></div>
+      <div class="actions">
+        <button class="btn ok" data-review="approved">Aprobar</button>
+        <button class="btn no" data-review="changes">Pedir cambios</button>
+      </div>
+    </footer>
+  </dialog>
+
+  <dialog id="task-new-dialog">
+    <form method="dialog"><button class="btn close" aria-label="Cerrar">✕</button></form>
+    <h2 class="dlg-title">Nueva tarea</h2>
+    <div class="form-grid">
+      <label>Para<select id="tn-assignee"></select></label>
+      <label>Prioridad<select id="tn-priority"><option value="alta">Alta</option><option value="media" selected>Media</option><option value="baja">Baja</option></select></label>
+      <label class="full">Título<input id="tn-title" maxlength="140" placeholder="Ej.: 5 ideas sobre páginas web para clínicas"></label>
+      <label class="full">Qué hacer<textarea id="tn-desc" rows="7" maxlength="6000" placeholder="Contexto, qué entregar, qué evitar…"></textarea></label>
+    </div>
+    <div class="actions" style="margin-top:12px"><button class="btn ok" id="tn-save">Crear tarea</button><span class="msg-line" id="tn-msg"></span></div>
+  </dialog>
+
+  <dialog id="task-detail">
+    <form method="dialog"><button class="btn close" aria-label="Cerrar">✕</button></form>
+    <div id="td-body"></div>
+  </dialog>
+
+  <dialog id="encargo">
+    <form method="dialog"><button class="btn close" aria-label="Cerrar">✕</button></form>
+    <h2 id="encargo-title" class="dlg-title"></h2>
+    <p class="note">Escribí qué querés que haga. Por ejemplo, para Lucía: el guion aprobado de un video nuevo, tal cual.</p>
+    <textarea id="encargo-text" rows="9" maxlength="4000" class="dlg-text"></textarea>
+    <div class="actions" style="margin-top:12px"><button class="btn ok" id="encargo-send">Encargar</button><span class="msg-line" id="encargo-msg"></span></div>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+  <!-- Paneles de la oficina: chat a la derecha y videos a la izquierda, sin salir de la oficina -->
+  <aside id="side-chat" class="drawer right" hidden>
+    <header class="drawer-head"><div id="side-chat-head" class="drawer-title"></div><button class="btn sm" id="side-chat-full">Abrir en Chat</button><button class="btn sm" data-side-close="chat" aria-label="Cerrar">✕</button></header>
+    <div id="side-chat-msgs" class="chat-msgs drawer-body"></div>
+    <div id="side-chat-typing" class="chat-typing" hidden></div>
+    <div id="side-chat-mentions" class="chat-mentions" hidden></div>
+    <form id="side-chat-form" class="chat-form"><textarea id="side-chat-input" rows="2" maxlength="4000" placeholder="Escribí… (Enter envía)"></textarea><button class="btn ok" id="side-chat-send">Enviar</button></form>
+  </aside>
+  <aside id="side-team" class="drawer left" hidden>
+    <header class="drawer-head"><div class="drawer-title"><b id="side-team-title">El equipo</b><small>Lo que te piden y en qué están</small></div><button class="btn sm" data-side-close="chat" aria-label="Cerrar">✕</button></header>
+    <div id="side-status" class="side-status drawer-body"></div>
+  </aside>
+  <aside id="side-studio" class="drawer left" hidden>
+    <header class="drawer-head"><div class="drawer-title"><b>Videos para aprobar</b><small id="side-studio-sub"></small></div><button class="btn sm" data-go="estudio" data-side-close="studio">Abrir Estudio</button><button class="btn sm" data-side-close="studio" aria-label="Cerrar">✕</button></header>
+    <div id="side-studio-body" class="drawer-body side-studio"></div>
+  </aside>
+  <!-- Ventas: la conversación se abre a la derecha -->
+  <aside id="v-drawer" class="drawer right v-drawer" hidden>
+    <div class="v-drawer-body">
+      <section class="v-chat">
+        <div class="v-head-row"><div id="v-head" class="v-head"></div><button class="btn sm" data-vclose-conv="1" aria-label="Cerrar">✕</button></div>
+        <div id="v-msgs" class="v-msgs"></div>
+        <div id="v-plantilla" class="v-form v-plantilla" hidden><span class="note">Pasaron más de 24 h desde su último mensaje: solo se puede escribir con una plantilla.</span><select id="v-plantilla-sel"></select><button class="btn ok" type="button" id="v-plantilla-btn">Mandar plantilla</button></div>
+        <form id="v-form" class="v-form"><input id="v-input" autocomplete="off" placeholder="Escribí como cliente…"><button class="btn ok">Enviar</button></form>
+      </section>
+      <aside class="v-state" id="v-state"></aside>
+    </div>
+  </aside>
+</body>
+</html>

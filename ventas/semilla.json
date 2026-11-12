@@ -1,0 +1,714 @@
+{
+  "vendedor": {
+    "nombre": "Nombre del vendedor",
+    "cargo": "Consultor de Proyectos Digitales",
+    "empresa": "Mi Empresa",
+    "moneda": "HNL",
+    "whatsapp": ""
+  },
+  "objetivo": {
+    "label": "Ofrecer una demo gratuita de la página web",
+    "descripcion": "Tu meta NO es cobrar en el chat: es que el cliente conozca el precio y decida si quiere ver su demo. Pregunta a qué se dedica su negocio (si no lo sabes por lo que escribió o por su imagen). Si es un negocio real, en un mensaje di para qué le sirve la página en su rubro, qué incluye, el precio (L 8,500 en dos pagos: mitad para empezar y mitad al publicarla) y que la demo es gratis antes de pagar, y cierra con \"¿Te parece si te armamos la demo?\". Solo si dice que sí, pide lo que falte (el nombre del negocio) y pasa a demo con un día concreto. El logo es opcional. Si no califica, no ofrezcas la demo ni escales.",
+    "preguntas": [
+      "¿Qué tipo de negocio tiene y qué quiere lograr con la página (vender, recibir contactos o tener presencia)? — SOLO si todavía no lo sabes por el anuncio o por lo que ya dijo.",
+      "¿Necesita un panel para manejar catálogo (productos, autos, propiedades o precios) o solo un sitio informativo de servicios? De esto depende el paquete."
+    ],
+    "obligatorios": [
+      "Nombre de la empresa",
+      "A qué se dedica la empresa"
+    ],
+    "opcionales": [
+      "Logo de la empresa (si lo tiene a la mano)"
+    ],
+    "mensaje_escalar": "Perfecto, con esta información nuestro equipo te prepara la demo y te la muestra entre mañana y pasado mañana. Ya te estoy pasando con un compañero para que te dé seguimiento."
+  },
+  "catalogo": [
+    {
+      "nombre": "Web Esencial - Landing Page",
+      "precio": 6500,
+      "descripcion": "Ideal para: negocios que necesitan presencia profesional en internet, mostrar quiénes son, sus servicios, ubicación y facilitar que los clientes los contacten.\n\nIncluye:\n\nPágina web profesional de una sola vista.\nInformación de la empresa.\nSección de servicios.\nBotón de WhatsApp.\nInformación de contacto.\nUbicación y horarios.\nDiseño adaptable a celular, tablet y computadora.\nDominio y hosting.\nCertificado SSL.\nPágina lista para publicar.\n\nNo incluye:\n\nPanel administrativo.\nCatálogo administrable.\nSistema para subir productos.\nTienda en línea.\nFunciones empresariales avanzadas.\n\nTiempo estimado: normalmente 3–4 días una vez recibida la información necesaria.\n\nForma de pago: 50% para comenzar y 50% al finalizar.\n\nMantenimiento: el primer año va incluido; desde el segundo año son L 2,000 al año. No hay mensualidad obligatoria.\n\nRubros donde ya tenemos trabajos hechos con este paquete: barberías y salones, dojos y academias deportivas, servicios de limpieza, talleres electromecánicos y de servicio, clínicas y consultorios, despachos y profesionales independientes."
+    },
+    {
+      "nombre": "Sistema Web Empresarial / Desarrollo a medida",
+      "precio": 0,
+      "descripcion": "Precio: según requerimientos.\n\nIdeal para: empresas que necesitan algo más que una página informativa.\n\nEjemplos:\n\nCRM.\nDashboards.\nSistemas administrativos.\nInventarios.\nGestión de clientes.\nReservaciones.\nCotizaciones.\nFacturación.\nAgenda.\nAutomatizaciones.\nRoles de empleados.\nAnalíticas.\nIntegraciones con WhatsApp, correo u otras plataformas.\n\nRegla para la IA:\n\nSi el prospecto solicita funciones empresariales, automatizaciones, usuarios, paneles administrativos complejos, inventario, CRM, facturación o funcionalidades especiales, NO cotizar automáticamente. Indicar que se trata de un sistema personalizado y transferir la conversación a un asesor.\n\nEsto es muy importante."
+    },
+    {
+      "nombre": "Web Pro",
+      "precio": 8500,
+      "descripcion": "Ideal para: negocios que tienen varios productos, servicios, categorías o necesitan una página más completa.\n\nIncluye:\n\nDiseño Profesional.\nVarias secciones o páginas.\nCatálogo de productos o servicios.\nCategorías.\nGalería de imágenes o proyectos.\nFormularios de contacto o cotización.\nDiseño más personalizado.\nCapacitación para gestionar contenido cuando corresponda.\n\nIdeal para negocios como:\n\ntiendas,\ninmobiliarias,\nrestaurantes,\nclínicas,\nempresas con muchos servicios,\ndistribuidores,\nempresas que necesitan mostrar un catálogo.\n\nForma de pago: 50% para comenzar y 50% al finalizar.\n\nMantenimiento: el primer año va incluido; desde el segundo año son L 2,000 al año. No hay mensualidad obligatoria.\n\nRubros donde ya tenemos trabajos hechos con este paquete: venta y renta de impresoras y equipos, talleres y dealers de autos, agencias de viaje, inmobiliarias y bienes raíces, venta de tanques y productos industriales, viveros y jardinería, tiendas y distribuidores con catálogo."
+    }
+  ],
+  "faqs": [
+    {
+      "pregunta": "¿Cómo funciona la demo gratis?",
+      "respuesta": "Nos pasas el nombre de tu negocio, a qué se dedica y tu logo. Te mostramos tu página con tu nombre y tu logo antes de pagar nada. Si te gusta, la dejamos publicada; si no te convence, no pagas."
+    },
+    {
+      "pregunta": "¿Cómo se paga y es pago único?",
+      "respuesta": "Sí, es un solo pago dividido en dos partes: 50% para empezar y 50% al entregar. El primer año de mantenimiento va incluido y desde el segundo son L 2,000 al año. No hay mensualidad obligatoria."
+    },
+    {
+      "pregunta": "¿El dominio y el hosting están incluidos?",
+      "respuesta": "Sí, el primer año de dominio, hosting y certificado SSL va incluido. Desde el segundo año el mantenimiento anual (renovación y mantenimiento de la página) es de L 2,000 al año."
+    },
+    {
+      "pregunta": "¿Incluye correo corporativo?",
+      "respuesta": "Sí, incluye correo corporativo con tu dominio, por ejemplo tu@tunegocio.com."
+    },
+    {
+      "pregunta": "¿Qué soporte tienen después de entregar?",
+      "respuesta": "La Web Pro incluye soporte por 12 meses. Después, el mantenimiento anual es de L 2,000 al año; los cambios grandes o funciones nuevas los cotiza el equipo."
+    },
+    {
+      "pregunta": "¿Cuánto tarda?",
+      "respuesta": "La demo te la mandamos mañana por aquí (al día siguiente). Ya aprobada, tu página queda lista en 3 a 4 días hábiles."
+    },
+    {
+      "pregunta": "¿El precio incluye publicidad en Facebook o Instagram?",
+      "respuesta": "No. La Web Pro es la página web: diseño, dominio, hosting, correo y soporte. La publicidad en Facebook e Instagram es un servicio aparte que el equipo te puede cotizar si te interesa."
+    },
+    {
+      "pregunta": "¿Quién sube los productos al catálogo? ¿Ustedes hacen la carga inicial?",
+      "respuesta": "Si ya tienes las fotos y la información de tus productos, nosotros hacemos la carga inicial cuando son menos de 50 productos, o si ya tienes una base de datos (por ejemplo, un Excel) la incluimos sin problema. Además te enseñamos a manejar el catálogo para que tú mismo agregues y cambies productos cuando quieras."
+    }
+  ],
+  "rubros": [
+    {
+      "nombre": "Barberías y salones",
+      "palabras": [
+        "barberia",
+        "barber",
+        "barbero",
+        "salon",
+        "estetica",
+        "peluqueria",
+        "spa",
+        "uñas",
+        "cortes"
+      ],
+      "anuncio": [
+        "barberia",
+        "barber",
+        "salon",
+        "estetica"
+      ],
+      "saludo": "Hola, qué gusto. A las barberías les armamos una página donde se ven los cortes, los precios y el horario, y la gente agenda directo por WhatsApp.",
+      "objeciones": "\"Está caro\" → Son L 6,500 una sola vez y la página trabaja todos los días; con 2 o 3 clientes nuevos al mes ya se pagó.\n\"Ya tengo Instagram\" → Instagram es para mostrarte, la página es para que te encuentren en Google cuando buscan barbería en tu zona. Se complementan.",
+      "ejemplos": [
+        {
+          "titulo": "Gents Heaven Barbershop",
+          "url": "https://gentsheavenbarbershophn.cresova.com/",
+          "nota": "servicios, precios y contacto por WhatsApp"
+        }
+      ]
+    },
+    {
+      "nombre": "Venta y renta de impresoras y equipos",
+      "palabras": [
+        "impresora",
+        "impresoras",
+        "toner",
+        "fotocopiadora",
+        "renta de equipo",
+        "equipos de oficina",
+        "suministros"
+      ],
+      "anuncio": [
+        "impresora",
+        "equipos",
+        "oficina"
+      ],
+      "saludo": "Hola, con gusto. Para venta y renta de equipos armamos una página con el catálogo de modelos y un botón de cotización directo a WhatsApp.",
+      "objeciones": "\"Tengo muchos modelos\" → Por eso va Web Pro: tiene panel para que tú mismo suba, edite o quite modelos y precios cuando quieras.",
+      "ejemplos": [
+        {
+          "titulo": "Honduprinters",
+          "url": "https://honduprinters.cresova.com/",
+          "nota": "catálogo de impresoras con cotización"
+        }
+      ]
+    },
+    {
+      "nombre": "Dojos, academias y gimnasios",
+      "palabras": [
+        "dojo",
+        "karate",
+        "taekwondo",
+        "artes marciales",
+        "gimnasio",
+        "academia",
+        "clases",
+        "entrenamiento",
+        "bushido"
+      ],
+      "anuncio": [
+        "dojo",
+        "academia",
+        "gimnasio",
+        "artes marciales"
+      ],
+      "saludo": "Hola, qué bueno que escribe. Para academias hacemos una página con las disciplinas, los horarios y la inscripción por WhatsApp.",
+      "objeciones": "\"No sé si me sirve\" → Los papás buscan en Google antes de inscribir a su hijo; si no aparece, se van con quien sí aparece.",
+      "ejemplos": [
+        {
+          "titulo": "Borjas Bushido",
+          "url": "https://borjasbushido.cresova.com/",
+          "nota": "disciplinas, horarios e inscripción"
+        }
+      ]
+    },
+    {
+      "nombre": "Agencias de viaje y turismo",
+      "palabras": [
+        "agencia de viajes",
+        "viajes",
+        "turismo",
+        "tours",
+        "paquetes",
+        "boletos",
+        "excursiones",
+        "hoteles"
+      ],
+      "anuncio": [
+        "viajes",
+        "turismo",
+        "tours"
+      ],
+      "saludo": "Hola, con mucho gusto. A las agencias de viaje les hacemos una página con los paquetes y destinos, y el cliente cotiza directo por WhatsApp.",
+      "objeciones": "\"Mis paquetes cambian seguido\" → Con Web Pro tú entras al panel y cambias paquetes y precios cuando quieras, sin depender de nosotros.",
+      "ejemplos": [
+        {
+          "titulo": "Travel World 504",
+          "url": "https://travelworld504.com/",
+          "nota": "paquetes y destinos con cotización"
+        }
+      ]
+    },
+    {
+      "nombre": "Talleres y dealers de autos",
+      "palabras": [
+        "taller",
+        "dealer",
+        "autos",
+        "carros",
+        "vehiculos",
+        "venta de carros",
+        "repuestos",
+        "mecanica",
+        "automotriz",
+        "llantas"
+      ],
+      "anuncio": [
+        "taller",
+        "autos",
+        "carros",
+        "dealer",
+        "automotriz"
+      ],
+      "saludo": "Hola, con gusto. A los talleres y dealers les armamos una página con el inventario de vehículos o los servicios, y el cliente escribe directo por WhatsApp.",
+      "objeciones": "\"La gente ya me conoce\" → Los que ya lo conocen sí; el problema son los que buscan en Google y nunca lo encuentran.\n\"Está caro\" → Un solo carro vendido o dos servicios grandes ya cubren la inversión.",
+      "ejemplos": [
+        {
+          "titulo": "Autos Shama",
+          "url": "https://autosshama.com/",
+          "nota": "inventario de vehículos y servicios"
+        },
+        {
+          "titulo": "Electromecánica Cruz",
+          "url": "https://electromecanicacruz.com/",
+          "nota": "taller de servicios técnicos"
+        }
+      ]
+    },
+    {
+      "nombre": "Venta de tanques y productos industriales",
+      "palabras": [
+        "tanque",
+        "tanques",
+        "rotoplas",
+        "cisterna",
+        "ferreteria",
+        "distribuidor",
+        "industrial",
+        "bombas",
+        "pilas"
+      ],
+      "anuncio": [
+        "tanques",
+        "rotoplas",
+        "ferreteria",
+        "industrial"
+      ],
+      "saludo": "Hola, con gusto. Para venta de tanques y producto industrial hacemos una página con el catálogo por capacidad y precio, y cotización por WhatsApp.",
+      "objeciones": "\"Vendo por teléfono\" → La página no reemplaza la llamada, la genera: el cliente ve capacidad y precio y ya llama decidido.",
+      "ejemplos": [
+        {
+          "titulo": "Tanques HN",
+          "url": "https://tanqueshn.com/",
+          "nota": "catálogo por capacidad con cotización"
+        }
+      ]
+    },
+    {
+      "nombre": "Inmobiliarias y bienes raíces",
+      "palabras": [
+        "inmobiliaria",
+        "bienes raices",
+        "propiedades",
+        "casas",
+        "terrenos",
+        "apartamentos",
+        "realtor",
+        "alquiler",
+        "venta de casas"
+      ],
+      "anuncio": [
+        "inmobiliaria",
+        "bienes raices",
+        "propiedades",
+        "realtor"
+      ],
+      "saludo": "Hola, con gusto. A las inmobiliarias les armamos una página con las propiedades, sus fotos y fichas, y el interesado escribe directo por WhatsApp.",
+      "objeciones": "\"Publico en Facebook\" → En Facebook la propiedad se pierde en dos días; en tu página queda ordenada, buscable y se ve profesional para el cliente que compra fuerte.",
+      "ejemplos": [
+        {
+          "titulo": "Escala Realtor",
+          "url": "https://escalarealtor.com/",
+          "nota": "propiedades con fichas y fotos"
+        }
+      ]
+    },
+    {
+      "nombre": "Viveros, plantas y jardinería",
+      "palabras": [
+        "vivero",
+        "plantas",
+        "jardineria",
+        "paisajismo",
+        "macetas",
+        "flores",
+        "arboles",
+        "jardin"
+      ],
+      "anuncio": [
+        "vivero",
+        "plantas",
+        "jardineria"
+      ],
+      "saludo": "Hola, qué gusto. A los viveros les hacemos una página con el catálogo de plantas, cuidados y pedidos por WhatsApp.",
+      "objeciones": "\"Mis plantas cambian por temporada\" → Con el panel tú actualizas el catálogo por temporada en minutos.",
+      "ejemplos": [
+        {
+          "titulo": "Propuesta Vivero",
+          "url": "https://plant.cresova.com/",
+          "nota": "catálogo de plantas y pedidos"
+        }
+      ]
+    },
+    {
+      "nombre": "Servicios de limpieza y mantenimiento",
+      "palabras": [
+        "limpieza",
+        "servicio de limpieza",
+        "conserjeria",
+        "mantenimiento",
+        "fumigacion",
+        "aseo",
+        "desinfeccion"
+      ],
+      "anuncio": [
+        "limpieza",
+        "mantenimiento",
+        "conserjeria"
+      ],
+      "saludo": "Hola, con gusto. A las empresas de limpieza les armamos una página que muestra los servicios y genera solicitudes de cotización por WhatsApp.",
+      "objeciones": "\"Trabajo por referidos\" → La página hace que el referido lo tome en serio: ve tu empresa formal antes de llamar, y te sirve para licitar con empresas.",
+      "ejemplos": [
+        {
+          "titulo": "Gibbor",
+          "url": "https://gibbor.cresova.com/",
+          "nota": "servicios de limpieza con cotización"
+        }
+      ]
+    },
+    {
+      "nombre": "Talleres electromecánicos e industriales",
+      "palabras": [
+        "electromecanica",
+        "electromecanico",
+        "industrial",
+        "motores",
+        "bobinado",
+        "soldadura",
+        "mantenimiento industrial",
+        "generadores"
+      ],
+      "anuncio": [
+        "electromecanica",
+        "industrial",
+        "motores"
+      ],
+      "saludo": "Hola, con gusto. A los talleres electromecánicos les hacemos una página que muestra los servicios técnicos y da confianza a la empresa que va a contratar.",
+      "objeciones": "\"Mis clientes son empresas\" → Justo por eso: las empresas revisan tu página antes de aprobar un proveedor. Sin página, muchas ni lo consideran.",
+      "ejemplos": [
+        {
+          "titulo": "Electromecánica Cruz",
+          "url": "https://electromecanicacruz.com/",
+          "nota": "servicios técnicos e industriales"
+        }
+      ]
+    }
+  ],
+  "portafolio": [
+    {
+      "titulo": "Portafolio general",
+      "url": "https://cresova.com/portafolio",
+      "uso": "Solo si no hay nada de su rubro abajo"
+    },
+    {
+      "titulo": "Restaurantes y comida",
+      "url": "https://georgerestaurant.cresova.com/ | https://lacasadedonaolimpia.cresova.com/ | https://samurai.cresova.com/",
+      "uso": "Restaurantes, comida típica, taquerías, sushi, comida china"
+    },
+    {
+      "titulo": "Comida rápida y delivery",
+      "url": "https://4x4truckgrill.cresova.com/ | https://chickenexpress.cresova.com/ | https://chefdanny.cresova.com/",
+      "uso": "Hamburguesas, alitas, pollo, asados, comida a domicilio, chef privado"
+    },
+    {
+      "titulo": "Clínicas y médicos",
+      "url": "https://clinicademo.cresova.com/ | https://clinicamadrid.cresova.com/ | https://drramonhenriquez.cresova.com/",
+      "uso": "Consultorios, clínicas, médicos especialistas (con agenda de citas)"
+    },
+    {
+      "titulo": "Pediatría y salud materno-infantil",
+      "url": "https://neokids.cresova.com/",
+      "uso": "Pediatras, ginecología, maternidad"
+    },
+    {
+      "titulo": "Clínicas dentales",
+      "url": "https://dentalline.cresova.com/",
+      "uso": "Dentistas y clínicas dentales"
+    },
+    {
+      "titulo": "Estética y cuidado de la piel",
+      "url": "https://skinandwellness.cresova.com/",
+      "uso": "Clínicas estéticas, dermatología, spa, bienestar"
+    },
+    {
+      "titulo": "Barberías y salones",
+      "url": "https://gentsheavenbarbershophn.cresova.com/",
+      "uso": "Barberías, salones de belleza (con reservas)"
+    },
+    {
+      "titulo": "Cosméticos y belleza (tienda)",
+      "url": "https://cosmetic.cresova.com/ | https://splendor.cresova.com/",
+      "uso": "Maquillaje, skincare, perfumes, joyería"
+    },
+    {
+      "titulo": "Despachos legales",
+      "url": "https://kennedybodden.cresova.com/ | https://bufetemejiayasociados.cresova.com/",
+      "uso": "Abogados, bufetes, notarías"
+    },
+    {
+      "titulo": "Contabilidad y consultoría",
+      "url": "https://allianceco.cresova.com/ | https://idacorp.cresova.com/",
+      "uso": "Contadores, auditoría, impuestos, consultoras"
+    },
+    {
+      "titulo": "Trámites y registros",
+      "url": "https://seresa.cresova.com/",
+      "uso": "Registros sanitarios, marcas, patentes, gestorías"
+    },
+    {
+      "titulo": "Seguros",
+      "url": "https://sygma.cresova.com/ | https://astecadseguros.cresova.com/",
+      "uso": "Corredores y agencias de seguros, fianzas"
+    },
+    {
+      "titulo": "Inmobiliarias",
+      "url": "https://escalarealtor.com/ | https://inmobiliariaduron.cresova.com/ | https://bbrealestate.cresova.com/",
+      "uso": "Bienes raíces, venta y renta de casas, terrenos, lotificaciones"
+    },
+    {
+      "titulo": "Talleres automotrices",
+      "url": "https://electromecanicacruz.com/ | https://tinteyfriccion.cresova.com/ | https://autofix.cresova.com/",
+      "uso": "Mecánica, enderezado y pintura, electromecánica, airbags"
+    },
+    {
+      "titulo": "Venta de carros",
+      "url": "https://autosshama.com/ | https://autoseller.cresova.com/",
+      "uso": "Dealers, rent a car, venta de vehículos"
+    },
+    {
+      "titulo": "Motos: repuestos y talleres",
+      "url": "https://rpmotoshn.cresova.com/ | https://motorepuestosekt.cresova.com/ | https://inversionesguerra.cresova.com/",
+      "uso": "Repuestos y accesorios de moto, talleres de motos, mototaxis"
+    },
+    {
+      "titulo": "Ferreterías y construcción",
+      "url": "https://ferrezun.com/ | https://ferreteriauniversal.cresova.com/ | https://alucenterhn.cresova.com/",
+      "uso": "Ferreterías, materiales de construcción, aluminio, vidrio"
+    },
+    {
+      "titulo": "Materiales eléctricos y aire acondicionado",
+      "url": "https://electrosuministros-pro.cresova.com/ | https://elcon.cresova.com/",
+      "uso": "Eléctricos, iluminación, aire acondicionado, refrigeración"
+    },
+    {
+      "titulo": "Arquitectura y acabados",
+      "url": "https://argarquitectura.cresova.com/ | https://comancohn.cresova.com/",
+      "uso": "Arquitectos, constructoras, remodelación, impermeabilización"
+    },
+    {
+      "titulo": "Muebles y decoración",
+      "url": "https://dkohonduras.cresova.com/ | https://fabriqo.cresova.com/ | https://comercialrivera.cresova.com/",
+      "uso": "Mueblerías, carpinterías, decoración"
+    },
+    {
+      "titulo": "Ropa y moda",
+      "url": "https://liastore.cresova.com/ | https://primos-shop.cresova.com/",
+      "uso": "Boutiques, tiendas de ropa y calzado"
+    },
+    {
+      "titulo": "Relojes y joyería",
+      "url": "https://relojeriahorus.cresova.com/",
+      "uso": "Relojerías, joyerías, accesorios premium"
+    },
+    {
+      "titulo": "Juguetes y tiendas infantiles",
+      "url": "https://rinconmipequenotesoro.cresova.com/ | https://allisstore.cresova.com/",
+      "uso": "Jugueterías, ropa infantil, carros eléctricos"
+    },
+    {
+      "titulo": "Celulares y tecnología",
+      "url": "https://conectamax.cresova.com/ | https://iltech-pro.cresova.com/",
+      "uso": "Celulares, accesorios, computadoras, soporte técnico"
+    },
+    {
+      "titulo": "Regalos y personalizados",
+      "url": "https://kreativos.cresova.com/ | https://detallesconamor.cresova.com/ | https://confeccionesysublimados.cresova.com/",
+      "uso": "Camisetas, tazas, sublimación, uniformes, arreglos y regalos"
+    },
+    {
+      "titulo": "Tiendas en línea y catálogo",
+      "url": "https://deportesjoyce.cresova.com/ | https://comprafacilhn.cresova.com/ | https://dimarket.cresova.com/",
+      "uso": "Tiendas con catálogo, ecommerce, abarroterías, pago contra entrega"
+    },
+    {
+      "titulo": "Gimnasios y academias",
+      "url": "https://gymhoward.cresova.com/ | https://borjasbushido.cresova.com/ | https://federaciontaekwondo.cresova.com/",
+      "uso": "Gimnasios, dojos, artes marciales, academias deportivas"
+    },
+    {
+      "titulo": "Agencias de viaje",
+      "url": "https://travelworld504.com/ | https://blessingtravel.cresova.com/",
+      "uso": "Agencias de viaje, paquetes, boletos"
+    },
+    {
+      "titulo": "Tours y turismo",
+      "url": "https://touristoptions.cresova.com/ | https://letsgoroatantours.net/ | https://roatanculturaltours.cresova.com/",
+      "uso": "Tours, excursiones, hoteles, turismo en islas"
+    },
+    {
+      "titulo": "Transporte",
+      "url": "https://transportes2026.com/ | https://transportealfaro.cresova.com/ | https://roatantaxitranfers.cresova.com/",
+      "uso": "Transporte turístico, escolar, empresarial, taxis y traslados"
+    },
+    {
+      "titulo": "Logística y envíos",
+      "url": "https://novalogistics.cresova.com/ | https://zorzalexpress.cresova.com/ | https://www.tarimashn.com/",
+      "uso": "Logística, aduanas, encomiendas, tarimas"
+    },
+    {
+      "titulo": "Industria y maquinaria",
+      "url": "https://sihsa.cresova.com/ | https://proyme.cresova.com/ | https://serviciosmultiplessanchez.cresova.com/",
+      "uso": "Talleres industriales, torno, automatización, montacargas"
+    },
+    {
+      "titulo": "Tecnología empresarial",
+      "url": "https://itglobalsolutions.cresova.com/ | https://ticnethonduras.cresova.com/ | https://megafibrahonduras.cresova.com/",
+      "uso": "Consultoría IT, redes, ERP, proveedores de internet"
+    },
+    {
+      "titulo": "Seguridad",
+      "url": "https://securityunit.cresova.com/ | https://protector.cresova.com/",
+      "uso": "Seguridad privada, cámaras, monitoreo"
+    },
+    {
+      "titulo": "Limpieza y mantenimiento",
+      "url": "https://gibbor.cresova.com/ | https://quiminorhn.cresova.com/ | https://prosedihn.cresova.com/",
+      "uso": "Limpieza, fumigación, jardinería, mantenimiento"
+    },
+    {
+      "titulo": "Impresoras y equipo de oficina",
+      "url": "https://honduprinters.cresova.com/",
+      "uso": "Venta y renta de impresoras, copiadoras"
+    },
+    {
+      "titulo": "Tanques y agua",
+      "url": "https://plastinak.cresova.com/",
+      "uso": "Tanques Rotoplas, cisternas, equipos de agua"
+    },
+    {
+      "titulo": "Agro y viveros",
+      "url": "https://inmagrohn.cresova.com/ | https://plant.cresova.com/",
+      "uso": "Insumos agrícolas, agroveterinarias, viveros, plantas"
+    },
+    {
+      "titulo": "Eventos y fiestas",
+      "url": "https://grachifiestas.cresova.com/ | https://sukutu.cresova.com/",
+      "uso": "Inflables, mobiliario para fiestas, brazaletes para eventos"
+    },
+    {
+      "titulo": "Música e instrumentos",
+      "url": "https://lacasadelamusica.cresova.com/",
+      "uso": "Tiendas de instrumentos, escuelas de música"
+    },
+    {
+      "titulo": "Recursos humanos",
+      "url": "https://recursoshumanos.cresova.com/",
+      "uso": "Reclutamiento, outsourcing, planillas"
+    },
+    {
+      "titulo": "Suplementos y bienestar",
+      "url": "https://parnaza.cresova.com/",
+      "uso": "Suplementos, tiendas naturistas, productos de bienestar"
+    },
+    {
+      "titulo": "Distribuidoras de alimentos",
+      "url": "https://royfloandcia.cresova.com/",
+      "uso": "Distribuidoras para restaurantes y hoteles, abastecimiento"
+    },
+    {
+      "titulo": "Instituciones y organizaciones",
+      "url": "https://aacimh.cresova.com/ | https://ligadeascensohn.cresova.com/",
+      "uso": "Asociaciones, ligas, gremios, fundaciones"
+    }
+  ],
+  "recomendaciones": [
+    {
+      "paquete": "Web Pro",
+      "palabras": [
+        "catalogo",
+        "catálogo",
+        "productos",
+        "subir productos",
+        "precios",
+        "inventario",
+        "tienda",
+        "ecommerce",
+        "panel",
+        "administrar"
+      ],
+      "motivo": "La Web Pro incluye catálogo con panel administrativo para subir, editar y quitar productos y precios cuando quieras."
+    },
+    {
+      "paquete": "Web Pro",
+      "palabras": [
+        "autos",
+        "carros",
+        "vehiculos",
+        "dealer",
+        "inventario de carros",
+        "repuestos"
+      ],
+      "motivo": "Los vehículos cambian de inventario, por eso necesita el panel de la Web Pro para subirlos y quitarlos tú mismo."
+    },
+    {
+      "paquete": "Web Pro",
+      "palabras": [
+        "inmobiliaria",
+        "bienes raices",
+        "propiedades",
+        "casas",
+        "terrenos",
+        "apartamentos",
+        "alquiler"
+      ],
+      "motivo": "Cada propiedad lleva su ficha con fotos y detalles, y tú las administras desde el panel de la Web Pro."
+    },
+    {
+      "paquete": "Web Pro",
+      "palabras": [
+        "agencia de viajes",
+        "paquetes",
+        "tours",
+        "destinos",
+        "turismo",
+        "excursiones"
+      ],
+      "motivo": "Los paquetes y destinos cambian por temporada; con la Web Pro los actualizas tú desde el panel."
+    },
+    {
+      "paquete": "Web Pro",
+      "palabras": [
+        "impresoras",
+        "equipos",
+        "toner",
+        "fotocopiadora",
+        "renta de equipo",
+        "maquinaria",
+        "tanques",
+        "rotoplas",
+        "vivero",
+        "plantas",
+        "ferreteria",
+        "distribuidor"
+      ],
+      "motivo": "Al manejar varios modelos o productos con precio, la Web Pro te da catálogo con panel para administrarlo."
+    },
+    {
+      "paquete": "Web Esencial - Landing Page",
+      "palabras": [
+        "solo servicios",
+        "informativa",
+        "presencia",
+        "barberia",
+        "salon",
+        "limpieza",
+        "dojo",
+        "academia",
+        "gimnasio",
+        "clinica",
+        "consultorio",
+        "abogado",
+        "despacho",
+        "electromecanica",
+        "taller de servicio",
+        "sin catalogo",
+        "pagina sencilla"
+      ],
+      "motivo": "Como no maneja catálogo de productos, con la Web Esencial muestras tus servicios, ubicación y horarios y recibes contactos por WhatsApp."
+    },
+    {
+      "paquete": "Sistema Web Empresarial / Desarrollo a medida",
+      "palabras": [
+        "sistema",
+        "crm",
+        "facturacion",
+        "inventario interno",
+        "app",
+        "aplicacion",
+        "usuarios",
+        "roles",
+        "dashboard",
+        "automatizacion",
+        "reservaciones",
+        "a la medida"
+      ],
+      "motivo": "Eso es un desarrollo a medida: no se cotiza automático, lo valida el equipo. Mientras tanto ofrézcale la demo gratis de la página."
+    }
+  ],
+  "seguimientos": [
+    {
+      "horas": 24,
+      "pista": "Retoma algo concreto del cliente (nombre del negocio, rubro o lo que pidió) y ofrece armar la demo gratis con UNA sola pregunta. Si la persona no mostró interés en una página web, no escribas."
+    },
+    {
+      "horas": 168,
+      "pista": "Comparte UN ejemplo real del mismo rubro del cliente y recuerda que la demo se ve antes de pagar nada. Cierra amable con una sola pregunta, sin presionar ni inventar escasez o alta demanda."
+    }
+  ]
+}

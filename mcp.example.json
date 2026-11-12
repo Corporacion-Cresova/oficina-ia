@@ -1,0 +1,17 @@
+{
+  "cresova": {
+    "type": "http",
+    "url": "https://cresova.com/mcp",
+    "headers": { "x-api-key": "${CRESOVA_MCP_API_KEY}" }
+  },
+  "uploadpost": {
+    "type": "http",
+    "url": "https://mcp.upload-post.com/mcp",
+    "headers": { "Authorization": "ApiKey ${UPLOADPOST_API_KEY}" }
+  },
+  "metaads": {
+    "type": "http",
+    "url": "https://mcp.facebook.com/ads",
+    "headers": { "Authorization": "Bearer ${METAADS_TOKEN}" }
+  }
+}
