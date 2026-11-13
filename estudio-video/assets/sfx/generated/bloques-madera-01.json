@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Two wooden toy blocks dropped onto a table, hollow wooden knock, close",
+ "duration_seconds": 0.8,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:16.569Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

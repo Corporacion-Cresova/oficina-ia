@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Small spoon tapping a ceramic coffee cup twice, gentle clinks",
+ "duration_seconds": 0.8,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:20.730Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

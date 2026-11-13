@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Cardboard boxes sliding and set down on a wooden shelf, soft thuds, close",
+ "duration_seconds": 1,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:09.496Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

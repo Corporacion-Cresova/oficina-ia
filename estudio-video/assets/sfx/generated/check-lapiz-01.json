@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Pencil drawing a quick checkmark on paper, short scratch",
+ "duration_seconds": 0.6,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:19.341Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Rubber stamp pressed firmly on paper, short thump with paper texture",
+ "duration_seconds": 0.6,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:18.024Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

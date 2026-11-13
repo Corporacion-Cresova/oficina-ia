@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Wax seal cracking and an envelope being opened, soft paper, close",
+ "duration_seconds": 1,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:23.955Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

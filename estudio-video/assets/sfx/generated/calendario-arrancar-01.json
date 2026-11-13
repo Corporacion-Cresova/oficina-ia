@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Tearing a page off a desk calendar pad, quick paper rip",
+ "duration_seconds": 0.8,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:26.780Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

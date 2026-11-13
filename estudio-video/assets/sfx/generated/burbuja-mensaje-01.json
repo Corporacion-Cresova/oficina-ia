@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Modern chat message received sound, soft single bubble pop, short, not a ringtone",
+ "duration_seconds": 0.5,
+ "prompt_influence": 0.5,
+ "created": "2026-10-24T21:18:07.548Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

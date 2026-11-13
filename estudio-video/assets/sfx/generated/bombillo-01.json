@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Small light bulb switching on with a soft filament hum and a gentle electric click",
+ "duration_seconds": 1,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:13.349Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

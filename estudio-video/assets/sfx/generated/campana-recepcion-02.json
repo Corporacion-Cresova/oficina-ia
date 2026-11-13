@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Loud clear ding of a hotel front desk service bell being slapped once, bright metallic ring, close microphone",
+ "duration_seconds": 1.5,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:29:20.079Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

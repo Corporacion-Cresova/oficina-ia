@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Metal key inserted into a padlock, turns, and the padlock clicks open, close and dry",
+ "duration_seconds": 1.2,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:07.942Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

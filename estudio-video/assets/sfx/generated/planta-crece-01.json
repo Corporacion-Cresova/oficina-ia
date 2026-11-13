@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Soft organic growing sound, gentle rustling leaves unfolding, subtle and warm, short",
+ "duration_seconds": 1.5,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:15.070Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

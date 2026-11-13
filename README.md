@@ -51,6 +51,7 @@ npm start
 | `cresova/` | módulos de negocio: cotizaciones, cobros, tesorería, clientes (nombre histórico) |
 | `pauta/`, `prospeccion/`, `desarrollo/` | anuncios, prospección y taller de páginas web |
 | `estudio.mjs`, `videos.mjs`, `publicador.mjs`, `voz.mjs` | video, publicación y voz |
+| `estudio-video/` | motor de render de video, plantilla y un video de ejemplo completo. Empieza por `estudio-video/LEEME.md` y `estudio-video/FALTANTES.md` |
 | `conocimiento/` | guías de marketing/ventas que consultan los agentes (con sus licencias en `licencias/`) |
 | `public/` | la interfaz web |
 

@@ -1,0 +1,9 @@
+{
+  "name": "cresova-motion",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "playwright": "1.49.1",
+    "three": "0.170.0"
+  }
+}

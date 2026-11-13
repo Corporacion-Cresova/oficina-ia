@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Small metal gears clicking and starting to turn, mechanical ratchet, short",
+ "duration_seconds": 1.2,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:22.570Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Quiet soft laptop keyboard typing, about eight light keystrokes, close and dry, no room",
+ "duration_seconds": 1.5,
+ "prompt_influence": 0.5,
+ "created": "2026-10-24T21:17:58.872Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

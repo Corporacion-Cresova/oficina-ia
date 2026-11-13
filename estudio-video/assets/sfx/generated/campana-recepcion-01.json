@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Single tap on a classic hotel reception desk bell, bright metallic ding with natural ring decay, close, no room reverb",
+ "duration_seconds": 1.5,
+ "prompt_influence": 0.5,
+ "created": "2026-10-25T21:28:03.972Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

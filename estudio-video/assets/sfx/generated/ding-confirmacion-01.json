@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "Gentle warm confirmation chime, single soft note, short decay, premium app",
+ "duration_seconds": 1,
+ "prompt_influence": 0.5,
+ "created": "2026-10-24T21:18:13.589Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

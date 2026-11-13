@@ -1,0 +1,559 @@
+{
+ "version": 1,
+ "voice": "assets/vo/Voz final.wav",
+ "voice_take": "Voz toma 1 (eleven_v4, El Faraón)",
+ "duration": 22.98,
+ "fps": 30,
+ "words": [
+  {
+   "i": 0,
+   "w": "Tu",
+   "start": 0.133,
+   "end": 0.16
+  },
+  {
+   "i": 1,
+   "w": "cliente",
+   "start": 0.36,
+   "end": 0.56
+  },
+  {
+   "i": 2,
+   "w": "busca",
+   "start": 0.64,
+   "end": 0.96
+  },
+  {
+   "i": 3,
+   "w": "cinco",
+   "start": 1.04,
+   "end": 1.36
+  },
+  {
+   "i": 4,
+   "w": "cosas.",
+   "start": 1.44,
+   "end": 2.04
+  },
+  {
+   "i": 5,
+   "w": "¿Las",
+   "start": 2.16,
+   "end": 2.32
+  },
+  {
+   "i": 6,
+   "w": "tienes?",
+   "start": 2.4,
+   "end": 3.04
+  },
+  {
+   "i": 7,
+   "w": "Uno:",
+   "start": 3.28,
+   "end": 3.92
+  },
+  {
+   "i": 8,
+   "w": "dónde",
+   "start": 4,
+   "end": 4.32
+  },
+  {
+   "i": 9,
+   "w": "estás.",
+   "start": 4.44,
+   "end": 5.28
+  },
+  {
+   "i": 10,
+   "w": "Dos:",
+   "start": 5.44,
+   "end": 6
+  },
+  {
+   "i": 11,
+   "w": "a",
+   "start": 6.04,
+   "end": 6.08
+  },
+  {
+   "i": 12,
+   "w": "qué",
+   "start": 6.16,
+   "end": 6.32
+  },
+  {
+   "i": 13,
+   "w": "hora",
+   "start": 6.44,
+   "end": 6.56
+  },
+  {
+   "i": 14,
+   "w": "abres.",
+   "start": 6.64,
+   "end": 7.44
+  },
+  {
+   "i": 15,
+   "w": "Tres:",
+   "start": 7.547,
+   "end": 8.16
+  },
+  {
+   "i": 16,
+   "w": "cómo",
+   "start": 8.2,
+   "end": 8.4
+  },
+  {
+   "i": 17,
+   "w": "escribirte,",
+   "start": 8.48,
+   "end": 9.36
+  },
+  {
+   "i": 18,
+   "w": "en",
+   "start": 9.44,
+   "end": 9.52
+  },
+  {
+   "i": 19,
+   "w": "un",
+   "start": 9.56,
+   "end": 9.6
+  },
+  {
+   "i": 20,
+   "w": "toque.",
+   "start": 9.68,
+   "end": 10.48
+  },
+  {
+   "i": 21,
+   "w": "Cuatro:",
+   "start": 10.52,
+   "end": 11.2
+  },
+  {
+   "i": 22,
+   "w": "fotos",
+   "start": 11.28,
+   "end": 11.6
+  },
+  {
+   "i": 23,
+   "w": "reales",
+   "start": 11.68,
+   "end": 12.16
+  },
+  {
+   "i": 24,
+   "w": "de",
+   "start": 12.2,
+   "end": 12.24
+  },
+  {
+   "i": 25,
+   "w": "tu",
+   "start": 12.32,
+   "end": 12.4
+  },
+  {
+   "i": 26,
+   "w": "trabajo.",
+   "start": 12.44,
+   "end": 13.36
+  },
+  {
+   "i": 27,
+   "w": "Cinco:",
+   "start": 13.4,
+   "end": 14.08
+  },
+  {
+   "i": 28,
+   "w": "qué",
+   "start": 14.16,
+   "end": 14.24
+  },
+  {
+   "i": 29,
+   "w": "dicen",
+   "start": 14.32,
+   "end": 14.64
+  },
+  {
+   "i": 30,
+   "w": "otros",
+   "start": 14.8,
+   "end": 14.96
+  },
+  {
+   "i": 31,
+   "w": "de",
+   "start": 15.04,
+   "end": 15.12
+  },
+  {
+   "i": 32,
+   "w": "ti.",
+   "start": 15.2,
+   "end": 15.48
+  },
+  {
+   "i": 33,
+   "w": "Tu",
+   "start": 15.813,
+   "end": 15.84
+  },
+  {
+   "i": 34,
+   "w": "página",
+   "start": 15.88,
+   "end": 16.24
+  },
+  {
+   "i": 35,
+   "w": "puede",
+   "start": 16.4,
+   "end": 16.72
+  },
+  {
+   "i": 36,
+   "w": "tener",
+   "start": 16.84,
+   "end": 16.96
+  },
+  {
+   "i": 37,
+   "w": "las",
+   "start": 17.04,
+   "end": 17.12
+  },
+  {
+   "i": 38,
+   "w": "cinco.",
+   "start": 17.2,
+   "end": 17.84
+  },
+  {
+   "i": 39,
+   "w": "Pide",
+   "start": 17.909,
+   "end": 18.08
+  },
+  {
+   "i": 40,
+   "w": "tu",
+   "start": 18.12,
+   "end": 18.16
+  },
+  {
+   "i": 41,
+   "w": "demo",
+   "start": 18.24,
+   "end": 18.4
+  },
+  {
+   "i": 42,
+   "w": "gratis",
+   "start": 18.48,
+   "end": 18.96
+  },
+  {
+   "i": 43,
+   "w": "y",
+   "start": 19,
+   "end": 19.04
+  },
+  {
+   "i": 44,
+   "w": "revísala",
+   "start": 19.12,
+   "end": 19.68
+  },
+  {
+   "i": 45,
+   "w": "tú",
+   "start": 19.76,
+   "end": 19.92
+  },
+  {
+   "i": 46,
+   "w": "mismo.",
+   "start": 19.96,
+   "end": 20.48
+  }
+ ],
+ "captions": [
+  {
+   "from": 0,
+   "to": 3,
+   "start": 0.133,
+   "end": 1.36,
+   "text": "Tu cliente busca cinco"
+  },
+  {
+   "from": 4,
+   "to": 4,
+   "start": 1.44,
+   "end": 2.04,
+   "text": "cosas."
+  },
+  {
+   "from": 5,
+   "to": 6,
+   "start": 2.16,
+   "end": 3.04,
+   "text": "¿Las tienes?"
+  },
+  {
+   "from": 7,
+   "to": 9,
+   "start": 3.28,
+   "end": 5.28,
+   "text": "Uno: dónde estás."
+  },
+  {
+   "from": 10,
+   "to": 13,
+   "start": 5.44,
+   "end": 6.56,
+   "text": "Dos: a qué hora"
+  },
+  {
+   "from": 14,
+   "to": 14,
+   "start": 6.64,
+   "end": 7.44,
+   "text": "abres."
+  },
+  {
+   "from": 15,
+   "to": 17,
+   "start": 7.547,
+   "end": 9.36,
+   "text": "Tres: cómo escribirte,"
+  },
+  {
+   "from": 18,
+   "to": 20,
+   "start": 9.44,
+   "end": 10.48,
+   "text": "en un toque."
+  },
+  {
+   "from": 21,
+   "to": 24,
+   "start": 10.52,
+   "end": 12.24,
+   "text": "Cuatro: fotos reales de"
+  },
+  {
+   "from": 25,
+   "to": 26,
+   "start": 12.32,
+   "end": 13.36,
+   "text": "tu trabajo."
+  },
+  {
+   "from": 27,
+   "to": 30,
+   "start": 13.4,
+   "end": 14.96,
+   "text": "Cinco: qué dicen otros"
+  },
+  {
+   "from": 31,
+   "to": 32,
+   "start": 15.04,
+   "end": 15.48,
+   "text": "de ti."
+  },
+  {
+   "from": 33,
+   "to": 36,
+   "start": 15.813,
+   "end": 16.96,
+   "text": "Tu página puede tener"
+  },
+  {
+   "from": 37,
+   "to": 38,
+   "start": 17.04,
+   "end": 17.84,
+   "text": "las cinco."
+  },
+  {
+   "from": 39,
+   "to": 42,
+   "start": 17.909,
+   "end": 18.96,
+   "text": "Pide tu demo gratis"
+  },
+  {
+   "from": 43,
+   "to": 46,
+   "start": 19,
+   "end": 20.48,
+   "text": "y revísala tú mismo."
+  }
+ ],
+ "scenes": [
+  {
+   "id": "cinco",
+   "name": "5 COSAS",
+   "start": 0,
+   "end": 3.2
+  },
+  {
+   "id": "uno",
+   "name": "01 DÓNDE",
+   "start": 3.2,
+   "end": 5.4
+  },
+  {
+   "id": "dos",
+   "name": "02 HORARIO",
+   "start": 5.4,
+   "end": 7.5
+  },
+  {
+   "id": "tres",
+   "name": "03 ESCRIBIRTE",
+   "start": 7.5,
+   "end": 10.45
+  },
+  {
+   "id": "cuatro",
+   "name": "04 FOTOS",
+   "start": 10.45,
+   "end": 13.35
+  },
+  {
+   "id": "cinco2",
+   "name": "05 RESEÑAS",
+   "start": 13.35,
+   "end": 15.75
+  },
+  {
+   "id": "todas",
+   "name": "LAS CINCO",
+   "start": 15.75,
+   "end": 17.85
+  },
+  {
+   "id": "cierre",
+   "name": "DEMO",
+   "start": 17.85,
+   "end": 22.98
+  }
+ ],
+ "music": {
+  "file": "../../assets/marca-sonora/candidatos/Tema AC1 epico latino.mp3",
+  "gain_db": -17,
+  "gap": [
+   15.4,
+   15.8
+  ],
+  "fade_out": [
+   21.18,
+   22.98
+  ]
+ },
+ "sfx": [
+  {
+   "sfx": "golpe-grave-01",
+   "t": 0,
+   "db": -6
+  },
+  {
+   "sfx": "pop-ui-01",
+   "t": 2.16,
+   "db": -11
+  },
+  {
+   "sfx": "golpe-grave-01",
+   "t": 3.23,
+   "db": -8
+  },
+  {
+   "sfx": "golpe-grave-01",
+   "t": 5.39,
+   "db": -8
+  },
+  {
+   "sfx": "golpe-grave-01",
+   "t": 7.497,
+   "db": -8
+  },
+  {
+   "sfx": "golpe-grave-01",
+   "t": 10.47,
+   "db": -8
+  },
+  {
+   "sfx": "golpe-grave-01",
+   "t": 13.35,
+   "db": -8
+  },
+  {
+   "sfx": "pop-ui-01",
+   "t": 3.58,
+   "db": -10
+  },
+  {
+   "sfx": "pop-ui-01",
+   "t": 5.74,
+   "db": -10
+  },
+  {
+   "sfx": "pop-ui-01",
+   "t": 7.847,
+   "db": -10
+  },
+  {
+   "sfx": "pop-ui-01",
+   "t": 10.82,
+   "db": -10
+  },
+  {
+   "sfx": "pop-ui-01",
+   "t": 13.7,
+   "db": -10
+  },
+  {
+   "sfx": "destello-particulas-01",
+   "t": 15.813,
+   "db": -10
+  },
+  {
+   "sfx": "ding-confirmacion-02",
+   "t": 17.2,
+   "db": -11
+  },
+  {
+   "sfx": "golpe-grave-01",
+   "t": 17.85,
+   "db": -8
+  },
+  {
+   "sfx": "pop-ui-01",
+   "t": 18.4,
+   "db": -11
+  },
+  {
+   "sfx": "clic-boton-01",
+   "t": 20.16,
+   "db": -7
+  },
+  {
+   "sfx": "ding-confirmacion-02",
+   "t": 20.21,
+   "db": -10
+  }
+ ]
+}

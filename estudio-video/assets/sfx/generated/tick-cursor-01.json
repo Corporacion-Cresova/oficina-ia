@@ -1,0 +1,9 @@
+{
+ "source": "ElevenLabs Sound Effects API",
+ "model": "eleven_text_to_sound_v2",
+ "prompt": "One tiny soft digital tick, very short, dry, minimal high frequencies, interface sound",
+ "duration_seconds": 0.5,
+ "prompt_influence": 0.5,
+ "created": "2026-10-24T21:17:56.041Z",
+ "license": "ElevenLabs Starter (uso comercial)"
+}

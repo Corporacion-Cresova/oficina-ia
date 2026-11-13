@@ -1,0 +1,14 @@
+# Líneas que el Dockerfile de la oficina necesita para el Estudio de video.
+# Añádelas al Dockerfile del repositorio (antes de `USER node`), ya que el actual NO las trae.
+# Son las mismas que usa la oficina original en producción.
+
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright ESTUDIO_TOOLKIT=/opt/estudio
+RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg git && rm -rf /var/lib/apt/lists/*
+RUN mkdir -p /opt/estudio && cd /opt/estudio \
+ && echo '{"name":"estudio","private":true,"type":"module"}' > package.json \
+ && npm install --omit=dev playwright@1.49.1 three@0.170.0 \
+ && npx playwright install --with-deps chromium \
+ && chmod -R a+rX /ms-playwright /opt/estudio \
+ && npm cache clean --force && rm -rf /var/lib/apt/lists/*
+
+# Recomendado: dar memoria al contenedor (la oficina original usa 8-12 GB cuando hay renders en paralelo).
