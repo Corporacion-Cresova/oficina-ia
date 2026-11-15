@@ -25,6 +25,7 @@ export class OfficeEventStream {
       const started = await this.adapter.startTurn(this.threadId, prompt);
       this.turnId = activeTurn = started?.turn?.id;
       if (!activeTurn) throw new Error('INVALID_TURN_RESPONSE');
+      this.adapter.readOnlyToolBridge?.bind(this.threadId,activeTurn);
       let text = '';
       while (!done) {
         if (failure) throw failure;
@@ -43,6 +44,7 @@ export class OfficeEventStream {
         }
       }
     } finally {
+      this.adapter.readOnlyToolBridge?.clear();
       clearTimeout(timer); rpc.off('notification', receive); rpc.off('closed', closed); signal?.removeEventListener('abort', abort);
       if (!done) await this.interrupt().catch(() => {});
     }

@@ -18,6 +18,9 @@ export class AppServerClient extends EventEmitter {
     if (this.closed) return;
     if (!message || typeof message !== 'object') throw new Error('INVALID_PROTOCOL_MESSAGE');
     if (message.method && message.id !== undefined) {
+      if (message.method === 'item/tool/call' && this.readOnlyToolBridge) {
+        this.send({ id:message.id, result:this.readOnlyToolBridge.handle(message) }); return;
+      }
       // No silent permission escalation or tool execution. A future UI must map
       // each request and return an explicit, scoped approval; currently fail closed.
       this.send({ id: message.id, error: { code: -32601, message: 'External action and approval bridge not enabled' } });
@@ -32,16 +35,17 @@ export class AppServerClient extends EventEmitter {
   close() { this.closed = true; this.emit('closed'); for (const p of this.pending.values()) { clearTimeout(p.timer); p.reject(new Error('TRANSPORT_CLOSED')); } this.pending.clear(); }
 }
 export class OfficeAdapter {
-  constructor(client, { workspace, model, env = {} }) {
+  constructor(client, { workspace, model, env = {}, readOnlyToolBridge = null }) {
     if (!path.isAbsolute(workspace || '')) throw new Error('ABSOLUTE_WORKSPACE_REQUIRED');
     if (!model || /^claude/i.test(model)) throw new Error('EXPLICIT_CODEX_MODEL_REQUIRED');
     for (const key of ['OPENAI_API_KEY','ANTHROPIC_API_KEY','OPENROUTER_API_KEY','AZURE_OPENAI_API_KEY']) {
       if (env[key]) throw new Error('PAID_CREDENTIAL_NOT_ALLOWED');
     }
+    this.readOnlyToolBridge=readOnlyToolBridge; client.readOnlyToolBridge=readOnlyToolBridge;
     this.client = client; this.workspace = workspace; this.model = model; this.ready = false; this.threads = new Set();
   }
   async initialize() {
-    await this.client.request('initialize', { clientInfo: { name: 'oficina-openai-adapter', version: '0.1.0' } });
+    await this.client.request('initialize', { clientInfo: { name: 'oficina-openai-adapter', version: '0.1.0' }, ...(this.readOnlyToolBridge ? {capabilities:{experimentalApi:true}} : {}) });
     this.client.send({ method: 'initialized' });
     await this.checkAccount(); this.ready = true;
   }
@@ -54,6 +58,7 @@ export class OfficeAdapter {
     if (!this.ready) throw new Error('NOT_INITIALIZED');
     await this.checkAccount();
     const r = await this.client.request('thread/start', {
+      ...(this.readOnlyToolBridge ? {dynamicTools:this.readOnlyToolBridge.specs()} : {}),
       cwd: this.workspace, model: this.model, modelProvider: 'openai',
       approvalPolicy: 'untrusted', sandbox: 'read-only',
       developerInstructions: instructions, ephemeral: true,

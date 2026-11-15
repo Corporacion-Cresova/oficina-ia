@@ -45,3 +45,6 @@ Added actual NDJSON child-process transport and an explicit `ChatGPTDraftRuntime
 
 ## Official binary probe and fixes
 See [COMPATIBILITY.md](COMPATIBILITY.md): 53 local tests plus successful unauthenticated initialize/account-read against installed official Codex 0.167.0-alpha.4. No real login or inference. Frame batching/EOF and readiness labeling corrected.
+
+## Read-only tool port (opt-in, not deployed)
+58 tests pass. `manualSnapshot` opt-in enables only scoped `ver_tablero`, reading a detached bounded snapshot, never original upstream state. Default runtime/server still advertises no dynamic tools. All approval requests other than this exact read-only tool remain denied. See [TOOL-MIGRATION.md](TOOL-MIGRATION.md) for 114 statically located upstream tool declarations and unmapped permission/hook dependencies. No authenticated tool inference has been tested.

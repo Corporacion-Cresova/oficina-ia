@@ -1,0 +1,126 @@
+# Tool migration inventory (static, partial)
+
+Upstream base 273a9ad142968c7cb963244178cde3177c1b20a4. Read-only static scan; no upstream module imported. Dynamic TOOLS.map in ventas/vendedor is not enumerated by this literal scan. Every listed upstream implementation remains blocked. Do not infer authorization from tool descriptions.
+
+First separate audited port: `ver_tablero` reads an explicitly supplied **manual task snapshot**, not the original board, database or autonomous jobs. Optional runtime constructor manualSnapshot; omitted by default. Exact thread/turn/call scope, empty arguments, maximum 10 calls and 100 displayed tasks. No state change. Fields other than id/title/manual status discarded. Snapshot is frozen at runtime creation and must not be described as current/live data. This is not full semantic compatibility with the upstream board.
+
+Unmapped canUseTool, hooks, allowedTools and disallowedTools remain rejected by sdk-bridge. Original crear_tarea can start work/notify others; it is NOT mapped to local manual create. Original business tools and seller functions can send messages or alter data; none activated. Development file-path hooks require explicit filesystem confinement and cannot be replaced by prompt text.
+
+Dynamic tools are experimental in official app-server and require experimentalApi capability; descriptor shape validated against installed generated schema. No authenticated dynamic-tool inference test performed.
+
+| Tool | Source | Line | State |
+|---|---|---:|---|
+| `ceo_marcador_equipo` | `runner.mjs` | 51 | blocked |
+| `ceo_grandes` | `runner.mjs` | 52 | blocked |
+| `ceo_grande_actualizar` | `runner.mjs` | 53 | blocked |
+| `ceo_encargo_hecho` | `runner.mjs` | 54 | blocked |
+| `ceo_entregas` | `runner.mjs` | 55 | blocked |
+| `ceo_entrega_actualizar` | `runner.mjs` | 56 | blocked |
+| `ceo_revision` | `runner.mjs` | 57 | blocked |
+| `ceo_marcador` | `runner.mjs` | 58 | blocked |
+| `ceo_historia` | `runner.mjs` | 59 | blocked |
+| `ceo_cambios` | `runner.mjs` | 60 | blocked |
+| `ceo_registrar_cambio` | `runner.mjs` | 61 | blocked |
+| `ceo_revertir_cambio` | `runner.mjs` | 62 | blocked |
+| `ceo_ab_crear` | `runner.mjs` | 63 | blocked |
+| `ceo_ab_resultado` | `runner.mjs` | 64 | blocked |
+| `ceo_ab_cerrar` | `runner.mjs` | 65 | blocked |
+| `ceo_cerrar_cambio` | `runner.mjs` | 66 | blocked |
+| `ceo_anotar_dia` | `runner.mjs` | 67 | blocked |
+| `ceo_preguntas_equipo` | `runner.mjs` | 68 | blocked |
+| `ceo_resolver_pregunta` | `runner.mjs` | 69 | blocked |
+| `ceo_preguntar_a_diego` | `runner.mjs` | 70 | blocked |
+| `ceo_pausar_agente` | `runner.mjs` | 71 | blocked |
+| `ceo_reactivar_agente` | `runner.mjs` | 72 | blocked |
+| `crear_tarea` | `runner.mjs` | 78 | blocked |
+| `ver_tablero` | `runner.mjs` | 106 | blocked |
+| `comentar_tarea` | `runner.mjs` | 107 | blocked |
+| `leer_entregable` | `runner.mjs` | 121 | blocked |
+| `buscar_entregables` | `runner.mjs` | 127 | blocked |
+| `publicaciones_programadas` | `runner.mjs` | 142 | blocked |
+| `organico_por_video` | `runner.mjs` | 154 | blocked |
+| `pedir_llamada` | `runner.mjs` | 201 | blocked |
+| `ver_conversacion` | `runner.mjs` | 209 | blocked |
+| `seguimientos_programados` | `runner.mjs` | 226 | blocked |
+| `chats_colgados` | `runner.mjs` | 231 | blocked |
+| `anuncio_texto_registrar` | `runner.mjs` | 238 | blocked |
+| `anuncio_texto_lista` | `runner.mjs` | 240 | blocked |
+| `anuncios_por_aprobar` | `runner.mjs` | 242 | blocked |
+| `anuncio_aprobar` | `runner.mjs` | 244 | blocked |
+| `anuncio_videos` | `runner.mjs` | 247 | blocked |
+| `anuncio_video_enlace` | `runner.mjs` | 249 | blocked |
+| `anuncio_video_registrar` | `runner.mjs` | 253 | blocked |
+| `ver_video` | `runner.mjs` | 279 | blocked |
+| `leer_video` | `runner.mjs` | 292 | blocked |
+| `ver_biblioteca` | `runner.mjs` | 294 | blocked |
+| `replicar_video` | `runner.mjs` | 296 | blocked |
+| `video_prioridad` | `runner.mjs` | 307 | blocked |
+| `programar_recordatorio` | `runner.mjs` | 325 | blocked |
+| `ver_recordatorios` | `runner.mjs` | 343 | blocked |
+| `cancelar_recordatorio` | `runner.mjs` | 347 | blocked |
+| `investigar_youtube` | `runner.mjs` | 376 | blocked |
+| `actualizar_manual` | `runner.mjs` | 392 | blocked |
+| `negocio_cotizaciones` | `runner.mjs` | 432 | blocked |
+| `negocio_cotizacion` | `runner.mjs` | 438 | blocked |
+| `negocio_tesoreria` | `runner.mjs` | 444 | blocked |
+| `negocio_gastos` | `runner.mjs` | 450 | blocked |
+| `negocio_clientes` | `runner.mjs` | 454 | blocked |
+| `negocio_cliente` | `runner.mjs` | 458 | blocked |
+| `negocio_pendientes` | `runner.mjs` | 460 | blocked |
+| `negocio_analiticas` | `runner.mjs` | 463 | blocked |
+| `negocio_prospeccion` | `runner.mjs` | 466 | blocked |
+| `negocio_crear_pendiente` | `runner.mjs` | 478 | blocked |
+| `negocio_cotizacion_pdf` | `runner.mjs` | 487 | blocked |
+| `negocio_crear_caso` | `runner.mjs` | 503 | blocked |
+| `negocio_propuesta_agente` | `runner.mjs` | 536 | blocked |
+| `negocio_registrar_pago` | `runner.mjs` | 556 | blocked |
+| `negocio_registrar_gasto` | `runner.mjs` | 570 | blocked |
+| `cobrar_anticipo` | `runner.mjs` | 593 | blocked |
+| `proyectos_lista` | `runner.mjs` | 594 | blocked |
+| `proyecto_mover` | `runner.mjs` | 604 | blocked |
+| `ventas_resumen` | `runner.mjs` | 611 | blocked |
+| `leer_conversaciones` | `runner.mjs` | 615 | blocked |
+| `leer_correcciones` | `runner.mjs` | 618 | blocked |
+| `leer_casos_velforce` | `runner.mjs` | 620 | blocked |
+| `leer_aprendizajes_velforce` | `runner.mjs` | 631 | blocked |
+| `leer_playbook` | `runner.mjs` | 633 | blocked |
+| `actualizar_playbook` | `runner.mjs` | 634 | blocked |
+| `crear_regla` | `runner.mjs` | 637 | blocked |
+| `desactivar_regla` | `runner.mjs` | 640 | blocked |
+| `probar_vendedor` | `runner.mjs` | 642 | blocked |
+| `recontacto_pausar` | `runner.mjs` | 649 | blocked |
+| `recontacto_reanudar` | `runner.mjs` | 651 | blocked |
+| `recontacto_estado` | `runner.mjs` | 653 | blocked |
+| `desarrollo_estado` | `runner.mjs` | 656 | blocked |
+| `desarrollo_pedir` | `runner.mjs` | 662 | blocked |
+| `recontacto_cargar` | `runner.mjs` | 674 | blocked |
+| `recontacto_lista` | `runner.mjs` | 676 | blocked |
+| `recontacto_proponer` | `runner.mjs` | 678 | blocked |
+| `recontacto_pedir_aprobacion` | `runner.mjs` | 681 | blocked |
+| `estado` | `runner.mjs` | 690 | blocked |
+| `entregar` | `runner.mjs` | 695 | blocked |
+| `recordar_indicacion` | `runner.mjs` | 743 | blocked |
+| `whatsapp_a_diego` | `runner.mjs` | 750 | blocked |
+| `ver_bandeja` | `runner.mjs` | 759 | blocked |
+| `discord_a_diego` | `runner.mjs` | 765 | blocked |
+| `pauta_tablero` | `runner.mjs` | 779 | blocked |
+| `bitacora_leer` | `runner.mjs` | 781 | blocked |
+| `pedir_anuncio` | `runner.mjs` | 783 | blocked |
+| `bitacora_registrar` | `runner.mjs` | 788 | blocked |
+| `bitacora_cerrar` | `runner.mjs` | 791 | blocked |
+| `leads_sin_clasificar` | `runner.mjs` | 794 | blocked |
+| `clasificar_lead` | `runner.mjs` | 796 | blocked |
+| `prospeccion_resultados` | `runner.mjs` | 803 | blocked |
+| `prospeccion_sondeo` | `runner.mjs` | 805 | blocked |
+| `prospeccion_proponer` | `runner.mjs` | 808 | blocked |
+| `encolar_video` | `runner.mjs` | 823 | blocked |
+| `encargar_render` | `runner.mjs` | 837 | blocked |
+| `embudo_por_anuncio` | `runner.mjs` | 858 | blocked |
+| `guias` | `runner.mjs` | 861 | blocked |
+| `compilar_y_revisar` | `desarrollo/proyectos.mjs` | 266 | blocked |
+| `generar_foto` | `desarrollo/proyectos.mjs` | 278 | blocked |
+| `mirar_referencia` | `desarrollo/proyectos.mjs` | 293 | blocked |
+| `guardar_regla_diseno` | `desarrollo/proyectos.mjs` | 299 | blocked |
+| `limpiar_logo` | `desarrollo/proyectos.mjs` | 307 | blocked |
+| `estado` | `desarrollo/proyectos.mjs` | 314 | blocked |
+| `veredicto` | `desarrollo/proyectos.mjs` | 430 | blocked |
