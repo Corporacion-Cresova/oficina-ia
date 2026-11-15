@@ -1,0 +1,9 @@
+**
+!Dockerfile.manual
+!server-manual-production.mjs
+!src/
+!src/safe-office.mjs
+!ui/
+!ui/index.html
+!ui/app.js
+!ui/style.css
