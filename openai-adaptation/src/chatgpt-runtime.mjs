@@ -20,9 +20,9 @@ export function launchIsolatedCodex({ binary, home, workspace, enabled = false }
 export class ChatGPTDraftRuntime {
  constructor({ childFactory, workspace, model, timeoutMs = 60000 }) {
   if(typeof childFactory!=='function')throw new Error('EXPLICIT_TRANSPORT_FACTORY_REQUIRED');
-  this.factory=childFactory;this.workspace=workspace;this.model=model;this.timeoutMs=timeoutMs;this.connection=null;this.busy=false;
+  this.factory=childFactory;this.workspace=workspace;this.model=model;this.timeoutMs=timeoutMs;this.connection=null;this.busy=false;this.inferenceVerified=false;
  }
- status(){return {inferenceConnected:!!this.adapter?.ready,accountKind:this.adapter?.ready?'chatgpt':null,externalActionsEnabled:false,paidApiEnabled:false,busy:this.busy};}
+ status(){return {transportConnected:!!this.connection && !this.connection.rpc.closed,chatgptAccountObserved:!!this.adapter?.ready,inferenceConnected:!!this.adapter?.ready && this.inferenceVerified,accountKind:this.adapter?.ready?'chatgpt':null,externalActionsEnabled:false,paidApiEnabled:false,busy:this.busy};}
  async connect(){
   if(this.connection)throw new Error('ALREADY_CONNECTED');
   try {
@@ -39,9 +39,9 @@ export class ChatGPTDraftRuntime {
   this.busy=true;this.controller=new AbortController();
   this.active=new OfficeEventStream(this.adapter,{timeoutMs:this.timeoutMs,instructions:'Draft text only. Do not use tools, shell, files, network, delegation or perform external actions. Never claim actions were completed.'});
   let output='';
-  try{for await(const e of this.active.stream(prompt,{signal:this.controller.signal})){if(e.type==='result'){if(e.subtype!=='success')throw new Error('DRAFT_FAILED');output=e.result;}}return {text:output,source:'chatgpt-app-server',toolApprovalPolicy:'deny-all-server-requests'};}
+  try{for await(const e of this.active.stream(prompt,{signal:this.controller.signal})){if(e.type==='result'){if(e.subtype!=='success')throw new Error('DRAFT_FAILED');output=e.result;}}this.inferenceVerified=true;return {text:output,source:'chatgpt-app-server',toolApprovalPolicy:'deny-all-server-requests'};}
   finally{this.busy=false;this.controller=null;this.active=null;}
  }
  cancel(){this.controller?.abort();}
- close(){this.cancel();this.connection?.close();this.connection=null;if(this.adapter)this.adapter.ready=false;}
+ close(){this.inferenceVerified=false;this.cancel();this.connection?.close();this.connection=null;if(this.adapter)this.adapter.ready=false;}
 }
