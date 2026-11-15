@@ -5,14 +5,15 @@ const ease=x=>1-Math.pow(1-clamp(x),3);
 const mix=(a,b,t)=>a+(b-a)*t;
 function box(c,x,y,w,h,r,color){c.fillStyle=color;c.beginPath();c.roundRect(x,y,w,h,r);c.fill();}
 function text(c,s,x,y,size=26,color='#f7f5f0',weight=700){c.fillStyle=color;c.font=`${weight} ${size}px "DejaVu Sans"`;c.fillText(s,x,y);}
-export function draw(c,t,{W=540,H=960,brandName="Marca",headings=["TE ESCRIBIÓ. ¿Y después?","QUE NO SE TE PIERDA.","Dale un siguiente paso."],durations=[2,2,3]}={}){
+export function draw(c,t,{W=540,H=960,brandName="Marca",headings=["TE ESCRIBIÓ. ¿Y después?","QUE NO SE TE PIERDA.","Dale un siguiente paso."],durations=[2,2,3],style=null}={}){
  c.save();c.scale(W/540,H/960);
- const bg=c.createLinearGradient(0,0,540,960);bg.addColorStop(0,'#151a23');bg.addColorStop(1,'#070b12');c.fillStyle=bg;c.fillRect(0,0,540,960);
+ const bg=c.createLinearGradient(0,0,540,960);bg.addColorStop(0,style?.background||'#151a23');bg.addColorStop(1,'#070b12');c.fillStyle=bg;c.fillRect(0,0,540,960);
  // Deliberate non-brand neutral palette for technical proof.
  const halo=c.createRadialGradient(250,475,10,250,475,400);halo.addColorStop(0,'#223447');halo.addColorStop(1,'#10151e00');c.fillStyle=halo;c.fillRect(0,0,540,960);
  c.strokeStyle='#ffffff07';c.lineWidth=1;for(let i=0;i<10;i++){c.beginPath();c.moveTo(-100,520+i*35);c.lineTo(700,440+i*35);c.stroke();}
  const transition=durations[0],ending=durations[0]+durations[1];
- const phase=ease((t-transition)/.7), close=ease((t-ending)/.6);
+ const speed=style?.transition?style.transition*2:.7;
+ const phase=ease((t-transition)/speed), close=ease((t-ending)/.6);
  const titleA=1-ease((t-transition)/.25), titleB=ease((t-transition)/.35)*(1-close);
  c.globalAlpha=titleA;heading(c,headings[0]);
  c.globalAlpha=titleB;heading(c,headings[1]);c.globalAlpha=1;
@@ -25,12 +26,12 @@ export function draw(c,t,{W=540,H=960,brandName="Marca",headings=["TE ESCRIBIÓ.
  c.restore();
  // Message cards move independently from scattered inbox to an ordered visual sequence.
  for(let i=0;i<3;i++){
- const enter=ease((t-.2-i*.3)/.45), p=ease((t-transition-i*.12)/.7);
+ const enter=ease((t-.2-i*.3)/.45), p=ease((t-transition-i*.12)/speed);
  const x=mix([164,320,195][i],277,p), y=mix([380,505,625][i],364+i*91,p);
  c.save();c.translate(x+mix(-45,0,enter),y);c.rotate(mix([-.1,.1,-.065][i],.025,p));c.globalAlpha=enter;
  c.shadowColor='#00000066';c.shadowBlur=22;c.shadowOffsetY=14;
  box(c,-123,-35,246,70,14,'#e9edf0');c.shadowColor='transparent';
- box(c,-105,-17,34,34,17,'#536c7e');text(c,['A','B','C'][i],-96,6,16);
+ box(c,-105,-17,34,34,17,style?.accent||'#536c7e');text(c,['A','B','C'][i],-96,6,16);
  text(c,['¿Tienes información?','Quiero una cotización','¿Podemos hablar?'][i],-60,-3,13,'#17232e');
  text(c,p>.6?['Por responder','Próximo paso','Seguimiento'][i]:'Nuevo mensaje',-60,18,12,'#52687b',400);
  if(p>.6){c.strokeStyle='#718b9d';c.lineWidth=2;c.beginPath();c.arc(106,0,7,0,Math.PI*2);c.stroke();}

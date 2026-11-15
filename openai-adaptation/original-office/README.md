@@ -19,7 +19,7 @@ Review-only build for a separate non-deployment branch. No deployed build, logge
 - Single worker/replica. Set1CPU/512MiB initial ceiling within owner global limits. No actual Docker build or resource enforcement verified here.
 
 ## Test evidence
-`node --test test.mjs video-http.test.mjs video/flow.test.mjs video/process-runner.test.mjs packaging.test.mjs production.test.mjs material-import.test.mjs renderer-selection.test.mjs` passed 41 tests. See TEST-RESULTS.txt. Tests cover real HTTP and local MP4 rendering plus explicitly simulated specialist outputs, not authenticated inference. Includes symlink/identity protections, atomic fsync persistence, per-store writer lock and caps.
+`node --test test.mjs video-http.test.mjs video/flow.test.mjs video/process-runner.test.mjs packaging.test.mjs production.test.mjs material-import.test.mjs renderer-selection.test.mjs visual-contract.test.mjs test/visual-specialist.test.mjs video/creative-review.test.mjs drawtext.test.mjs` passed 66 tests. See TEST-RESULTS.txt. Tests cover real HTTP and local MP4 rendering plus explicitly simulated specialist outputs, not authenticated inference. Includes symlink/identity protections, atomic fsync persistence, per-store writer lock and caps.
 - HTTP create, brand separation, CSRF-origin rejection, withheld paid flags and persisted state after HTTP server restart: real.
 - CodexVideoSpecialist + real runtime class without authentication: blocked, process factory not called, no inference.
 - Full stages in second test: deterministic specialist fixtures clearly labelled NOT-AI; no model result claimed.
@@ -43,3 +43,5 @@ Original office visual shell, responsive labeled workflow UI, local TXT import w
 The research stage uses only user-supplied evidence and does not automatically browse or verify claims. Imported text is untrusted context, never permission for external action. Authorization to accept an artifact does not authorize publishing it.
 
 Native Canvas memory is not bounded by the V8 heap flag. Deployment must enforce a container memory/CPU ceiling before enabling render. Source notices are retained; no redistributed music, voice samples, logos or customer uploads are included.
+
+Next-stage source adds a renderer-specific structured visual plan and bounded creative correction. Plans support only trusted templates, neutral palette/motion presets and fixed compositions; not arbitrary 3D layers or the complete original art engine. Canvas script density and final CTA are validated before inference/render. Correction is disabled by default, limited to two attempts per job by server-only authorization, preserves version hashes and always retains final human review. Mock runtime tests are not evidence of real authenticated generation.

@@ -37,3 +37,5 @@
 !video/canvas-demo/process-runner.mjs
 !video/canvas-demo/font-license.txt
 !video/canvas-demo/DEPENDENCIES.json
+
+!video/visual-contract.mjs

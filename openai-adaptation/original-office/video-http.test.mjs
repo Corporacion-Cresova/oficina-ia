@@ -30,11 +30,11 @@ test('HTTP rejects symlink cross-brand storage and does not expose internal path
 });
 test('Canvas demo opt-in renders and serves authenticated MP4; specialists explicitly fixtures',async()=>{
  const {createCanvasDemoRenderer}=await import('./video/canvas-demo-renderer.mjs');
- const runner={async run({stage}){const r=await fixtureRunner.run({stage});if(stage==='script')r.output.scenes=[{text:'Prueba técnica',durationSeconds:2},{text:'Marca separada',durationSeconds:2},{text:'Sin publicación',durationSeconds:3}];return r;}};
+ const runner={async run({stage}){const r=await fixtureRunner.run({stage});if(stage==='script')r.output.scenes=[{text:'Prueba técnica',durationSeconds:2},{text:'Marca separada',durationSeconds:2},{text:'Sin publicación',durationSeconds:3}];if(stage==='art_direction')r.output.visualPlan={template:'phone-cards-demo',palette:'neutral-warm',motion:'snappy',scenes:[{index:0,composition:'phone-cards'},{index:1,composition:'phone-cards'},{index:2,composition:'closing-card'}]};return r;}};
  const s=await setup({runner,renderer:createCanvasDemoRenderer()});try{
  assert.equal((await request(s,'/api/video-workflows/glowfy',{...brief,style:'external-executable'})).status,409);
  const j=(await request(s,'/api/video-workflows/glowfy',{...brief,style:'technical-canvas-demo'})).json;
- const r=(await request(s,`/api/video-workflows/glowfy/${j.id}/run`,{})).json;assert.equal(r.state,'awaiting_review');assert.equal(r.artifact.kind,'technical_canvas_demo');assert.equal(r.quality.published,false);assert.equal(r.stages[0].source,'simulated-test');
+ const r=(await request(s,`/api/video-workflows/glowfy/${j.id}/run`,{})).json;assert.equal(r.state,'awaiting_review');assert.equal(r.artifact.kind,'technical_canvas_demo');assert.equal((await s.flow.get('glowfy',j.id)).artifact.metadata.visualPlanApplied,true);assert.equal(r.quality.published,false);assert.equal(r.stages[0].source,'simulated-test');
  const media=await request(s,r.artifact.url);assert.equal(media.status,200);assert.ok(media.bytes.length>1000);assert.equal((await request(s,r.artifact.url,undefined,{Authorization:''})).status,401);assert.equal((await request(s,r.artifact.url.replace('glowfy','purify'))).status,409);
  }finally{await s.close();}
 });

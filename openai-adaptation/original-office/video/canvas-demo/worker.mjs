@@ -3,7 +3,7 @@ const [manifest]=process.argv.slice(2);const config=JSON.parse(await fs.readFile
 const {createCanvas,GlobalFonts}=createRequire(import.meta.url)('@napi-rs/canvas');
 if(!GlobalFonts.registerFromPath(config.fontRegular,'DejaVu Sans')||!GlobalFonts.registerFromPath(config.fontBold,'DejaVu Sans'))throw Error('Fuentes locales requeridas');
 const W=540,H=960,fps=24,duration=config.durations.reduce((a,b)=>a+b,0),canvas=createCanvas(W,H),ctx=canvas.getContext('2d');
-const options={W,H,headings:config.headings,durations:config.durations,brandName:config.brandName};
+const options={W,H,headings:config.headings,durations:config.durations,brandName:config.brandName,style:config.style};
 const child=spawn(config.ffmpeg,['-hide_banner','-loglevel','error','-y','-f','image2pipe','-framerate',String(fps),'-i','pipe:0','-an','-c:v','libx264','-threads','1','-pix_fmt','yuv420p','-crf','20','-movflags','+faststart',path.join(config.outDir,'canvas-demo.mp4')],{stdio:['pipe','ignore','pipe']});let errors='';child.stderr.on('data',d=>errors=(errors+d).slice(-3000));const done=new Promise((resolve,reject)=>{child.once('error',reject);child.once('close',code=>code===0?resolve():reject(Error(`Encoder failed ${code}: ${errors}`)));});done.catch(()=>{});child.stdin.on('error',()=>{});
 let timer=setTimeout(()=>child.kill('SIGKILL'),110000);const cleanup=()=>{child.kill('SIGKILL');process.exit(1);};process.once('SIGTERM',cleanup);process.once('SIGINT',cleanup);
 try{
