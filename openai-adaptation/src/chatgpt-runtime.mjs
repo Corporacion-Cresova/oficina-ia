@@ -1,6 +1,23 @@
 import {ReadOnlyToolBridge} from './read-only-tools.mjs';
 import path from 'node:path';import fs from 'node:fs';import {spawn} from 'node:child_process';
 import {attachStdio} from './stdio-transport.mjs';import {OfficeAdapter} from './adapter.mjs';import {OfficeEventStream} from './event-stream.mjs';
+// Entries observed from the pinned official unauthenticated app-server probe.
+// Configuration, plugins, custom skills and unknown entries still fail closed.
+export function validateRuntimeHomeEntries(home) {
+ const allowed=new Set(['auth.json','installation_id','.tmp','skills']);
+ for(const name of fs.readdirSync(home)) {
+  if(!allowed.has(name)&&!/^(queue|memories|goals|logs|state)_\d+\.sqlite(?:-shm|-wal)?$/.test(name))throw new Error('HOME_NOT_CLEAN');
+  const p=path.join(home,name);const st=fs.lstatSync(p);
+  if(st.isSymbolicLink())throw new Error('HOME_SYMLINK_REJECTED');
+  if(['.tmp','skills'].includes(name)){if(!st.isDirectory())throw new Error('HOME_NOT_CLEAN');}
+  else if(!st.isFile())throw new Error('HOME_NOT_CLEAN');
+ }
+ const skills=path.join(home,'skills');
+ if(fs.existsSync(skills))for(const name of fs.readdirSync(skills)){
+  if(name!=='.system'||!fs.lstatSync(path.join(skills,name)).isDirectory()||fs.lstatSync(path.join(skills,name)).isSymbolicLink())throw new Error('CUSTOM_SKILLS_NOT_ALLOWED');
+ }
+ return true;
+}
 // Explicit process factory for operators, NEVER called by server-safe.mjs.
 // Login must first be completed by the owner using official Codex in this isolated home.
 export function launchIsolatedCodex({ binary, home, workspace, enabled = false }) {
@@ -8,13 +25,13 @@ export function launchIsolatedCodex({ binary, home, workspace, enabled = false }
  for(const p of [binary,home,workspace])if(!path.isAbsolute(p||''))throw new Error('ABSOLUTE_PATHS_REQUIRED');
  const root=fs.realpathSync(home);if(root!==home || fs.lstatSync(home).isSymbolicLink())throw new Error('ISOLATED_HOME_REQUIRED');
  // No inherited config, plugins, skills, MCP or alternative providers.
- const permitted = new Set(['auth.json']);
- for(const name of fs.readdirSync(home))if(!permitted.has(name))throw new Error('HOME_NOT_CLEAN');
+ validateRuntimeHomeEntries(home);
  if(!fs.existsSync(path.join(home,'auth.json')))throw new Error('OWNER_CHATGPT_LOGIN_REQUIRED');
  if(fs.lstatSync(path.join(home,'auth.json')).isSymbolicLink())throw new Error('AUTH_SYMLINK_REJECTED');
  const auth=JSON.parse(fs.readFileSync(path.join(home,'auth.json'),'utf8'));
  if(auth.OPENAI_API_KEY)throw new Error('API_CREDENTIAL_REJECTED');
  // Workspace must be empty to avoid project config, AGENTS or arbitrary skills.
+ if(fs.realpathSync(workspace)!==workspace||fs.lstatSync(workspace).isSymbolicLink())throw new Error('ISOLATED_WORKSPACE_REQUIRED');
  if(fs.readdirSync(workspace).length)throw new Error('EMPTY_WORKSPACE_REQUIRED');
  return spawn(binary,['app-server','--listen','stdio://'],{cwd:workspace,env:{PATH:path.dirname(binary),HOME:home,CODEX_HOME:home,LANG:'C.UTF-8'},stdio:['pipe','pipe','pipe']});
 }

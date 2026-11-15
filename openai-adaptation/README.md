@@ -48,3 +48,8 @@ See [COMPATIBILITY.md](COMPATIBILITY.md): 53 local tests plus successful unauthe
 
 ## Read-only tool port (opt-in, not deployed)
 58 tests pass. `manualSnapshot` opt-in enables only scoped `ver_tablero`, reading a detached bounded snapshot, never original upstream state. Default runtime/server still advertises no dynamic tools. All approval requests other than this exact read-only tool remain denied. See [TOOL-MIGRATION.md](TOOL-MIGRATION.md) for 114 statically located upstream tool declarations and unmapped permission/hook dependencies. No authenticated tool inference has been tested.
+
+## Draft-service entrypoint and restart validation
+60 tests pass. New explicit `server-chatgpt.mjs` fails closed unless draft mode and operator isolation review are enabled and a ChatGPT account is observed before listening. It is NOT the root/default entrypoint and has NOT been deployed or authenticated here. See [DEPLOYMENT-READINESS.md](DEPLOYMENT-READINESS.md).
+
+The earlier auth-only-home limitation is superseded: allowed official runtime artifacts now include observed SQLite state, installation_id, .tmp and bundled skills/.system. Unknown config/plugins/custom skills remain blocked. This was checked against actual output of the unauthenticated official probe, without reading credentials. Full office functionality, owner login and production readiness remain pending.
