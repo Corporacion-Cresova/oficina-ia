@@ -12,3 +12,8 @@ test('deny-all Docker context includes transitive static and worker code, exclud
  for(const f of ['video/canvas-demo/worker.mjs','video/canvas-demo/scene.mjs','public/material-import.js'])assert.ok(included(f));
  for(const f of ['.env','auth.json','video/process-runner.test.mjs','video/flow.test.mjs','TEST-RESULTS.txt'])assert.equal(included(f),false,f);
 });
+test('voice contract stays outside image/startup, no HTTP synthesis route or client approval',()=>{
+ const rules=fs.readFileSync(new URL('.dockerignore',import.meta.url),'utf8');assert.ok(!rules.includes('!connectors'));
+ for(const f of ['start.mjs','server.mjs','video/http.mjs']){const s=fs.readFileSync(new URL(f,import.meta.url),'utf8');assert.ok(!s.includes('createElevenLabsAdapter'));assert.ok(!s.includes('.synthesize('));}
+ const server=fs.readFileSync(new URL('server.mjs',import.meta.url),'utf8');assert.ok(server.includes("voice:'not-connected'"));
+});

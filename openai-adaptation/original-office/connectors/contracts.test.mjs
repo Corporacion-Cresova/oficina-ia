@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {speechPlan,publicationPlan,approvalMatches,retryDisposition,capabilities} from './contracts.mjs';
+const base={brandId:'glowfy',jobId:'job-1',version:1};
+const speech={...base,text:'Tu agenda, organizada.',voiceId:'catalog-voice',modelId:'example-model',voiceProvenance:'licensed-catalog',voiceUseAuthorized:true,paidConsent:false};
+const post={...base,platform:'tiktok',accountId:'account-fixture',artifactHash:'a'.repeat(64),caption:'Para manicuristas',scheduleAt:null,visibility:'public',artifactKind:'production',artifactReviewed:true};
+test('all execution capabilities disabled',()=>{assert.equal(capabilities().network,false);assert.equal(capabilities().publish,false);assert.equal(speechPlan(speech).executionEnabled,false);assert.equal(publicationPlan(post).executionEnabled,false)});
+test('reject cloned or unapproved voices and paid execution',()=>{for(const edit of [{voiceProvenance:'clone'},{voiceUseAuthorized:false},{paidConsent:true}])assert.throws(()=>speechPlan({...speech,...edit}));});
+test('reject demo and unreviewed media',()=>{assert.throws(()=>publicationPlan({...post,artifactKind:'technical_canvas_demo'}));assert.throws(()=>publicationPlan({...post,artifactReviewed:false}));});
+test('explicit destination, hash and zoned schedule',()=>{for(const edit of [{accountId:''},{artifactHash:'bad'},{scheduleAt:'2026-11-17 10:00'},{brandId:'unknown'}])assert.throws(()=>publicationPlan({...post,...edit}));});
+test('speech approval cannot authorize publishing',()=>{const p=publicationPlan(post);assert.equal(approvalMatches(p,{owner:'jorge',action:'speech',decision:'approve',planHash:p.planHash,expiresAt:200},100),false)});
+test('all material changes invalidate exact approval',()=>{const p=publicationPlan(post),r={owner:'jorge',action:'publication',decision:'approve',planHash:p.planHash,expiresAt:200};assert.equal(approvalMatches(p,r,100),true);for(const edit of [{brandId:'velforce'},{accountId:'other'},{caption:'changed'},{version:2},{artifactHash:'b'.repeat(64)},{scheduleAt:'2026-11-17T10:00:00-07:00'},{visibility:'private'}])assert.equal(approvalMatches(publicationPlan({...post,...edit}),r,100),false);assert.equal(approvalMatches(p,r,201),false)});
+test('ambiguous and completed submissions never automatically retry',()=>{for(const status of ['submitted','processing','unknown','published'])assert.equal(retryDisposition(status),'reconcile_do_not_resubmit')});

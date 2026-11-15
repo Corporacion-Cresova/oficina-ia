@@ -4,7 +4,7 @@ import {createVideoHttpHandler} from './video/http.mjs';
 import fs from 'node:fs';
 import {createHash,timingSafeEqual} from 'node:crypto';
 const digest=s=>createHash('sha256').update(s).digest();
-export const capabilities=Object.freeze({ui:'original-visual-shell',functionalOffice:false,provider:'not-connected',autonomous:false,externalActionsEnabled:false,paidApiEnabled:false,features:{chat:'unavailable',tasks:'unavailable',crm:'not-connected',ads:'not-connected',render:'not-connected'}});
+export const capabilities=Object.freeze({ui:'original-visual-shell',functionalOffice:false,provider:'not-connected',autonomous:false,externalActionsEnabled:false,paidApiEnabled:false,features:{chat:'unavailable',tasks:'unavailable',crm:'not-connected',ads:'not-connected',render:'not-connected',voice:'not-connected',publication:'unavailable'}});
 const files=new Map([['/','index.html'],...['style.css','negocio.css','officehq.js','sprites.js','compat-app.js','compat.css','video-panel.js','material-import.js'].map(f=>['/'+f,f])]);
 const types={html:'text/html; charset=utf-8',js:'text/javascript; charset=utf-8',css:'text/css; charset=utf-8'};
 export function createOriginalShell({password,origin,videoFlow=null,videoDataDir=null}){
