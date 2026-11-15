@@ -9,7 +9,7 @@ const status = Object.freeze({ stage: 'manual-workspace', functionalOffice: fals
   inferenceConnected: false, externalActionsEnabled: false, paidApiEnabled: false,
   mode: 'manual-internal-tasks', persistence: 'local-json-atomic', timezone: 'America/Mazatlan' });
 
-export function createOffice({ password, dataDir, publicOrigin = '', clock = () => new Date().toISOString() }) {
+export function createOffice({ password, dataDir, publicOrigin = '', clock = () => new Date().toISOString(), draftRuntime = null }) {
   if (typeof password !== 'string' || password.length < 16) throw new Error('OFFICE_PASSWORD_REQUIRED_MIN_16');
   if (!path.isAbsolute(dataDir || '')) throw new Error('ABSOLUTE_ISOLATED_DATA_DIR_REQUIRED');
   fs.mkdirSync(dataDir, { recursive: true, mode: 0o700 });
@@ -66,7 +66,19 @@ export function createOffice({ password, dataDir, publicOrigin = '', clock = () 
       try {persist();}catch {Object.assign(task,previous);delete task.updatedAt;return send(500,{error:'PERSISTENCE_FAILED'});}
       return send(200,{task});
     }
-    if (req.method === 'GET' && req.url === '/api/status') return send(200, status);
+    if (req.method === 'GET' && req.url === '/api/status') return send(200, {...status, assistant:draftRuntime?.status() || {inferenceConnected:false,externalActionsEnabled:false,paidApiEnabled:false}});
+    if (req.method === 'POST' && req.url === '/api/assistant/cancel') {
+      if(req.headers['content-type']!=='application/json')return send(415,{error:'JSON_REQUIRED'});
+      draftRuntime?.cancel();return send(200,{cancelRequested:true});
+    }
+    if (req.method === 'POST' && req.url === '/api/assistant/draft') {
+      if(!draftRuntime)return send(503,{error:'CHATGPT_NOT_CONNECTED'});
+      if(req.headers['content-type']!=='application/json')return send(415,{error:'JSON_REQUIRED'});
+      let body='';try {for await(const chunk of req){body+=chunk;if(Buffer.byteLength(body)>16384)return send(413,{error:'BODY_TOO_LARGE'});}
+        const input=JSON.parse(body);if(Object.keys(input).some(k=>k!=='prompt'))return send(400,{error:'PROMPT_ONLY'});
+        const result=await draftRuntime.draft(input.prompt);return send(200,result);
+      } catch{return send(409,{error:'DRAFT_UNAVAILABLE_OR_INTERRUPTED'});}
+    }
     if (req.method === 'GET' && req.url === '/api/tasks') return send(200, { tasks });
     if (req.method === 'POST' && req.url === '/api/tasks') {
       if (req.headers['content-type'] !== 'application/json') return send(415, { error: 'JSON_REQUIRED' });
