@@ -1,0 +1,24 @@
+# STAGED ONLY. Install root-owned into runtime image; do not alter host policy.
+[features]
+shell_tool = false
+unified_exec = false
+unified_exec_tty = false
+shell_snapshot = false
+apps = false
+plugins = false
+remote_plugin = false
+memories = false
+multi_agent = false
+multi_agent_v2 = false
+hooks = false
+browser_use = false
+browser_use_external = false
+browser_use_full_cdp_access = false
+computer_use = false
+code_mode = false
+code_mode_host = false
+artifact = false
+request_permissions_tool = false
+skill_mcp_dependency_install = false
+skill_search = false
+goals = false

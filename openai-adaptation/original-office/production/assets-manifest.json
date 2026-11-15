@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "original-amano",
+      "source": "Corporacion-Cresova/oficina-ia@273a9ad:estudio-video/videos/_plantilla/src/amano.js",
+      "sha256": "b111ae402c75795b88eeb232c227231927d9d5d938060cb89952fd2c6fff35ba",
+      "kind": "source-code",
+      "rights": "repository-provided-by-user; commercial third-party rights not independently verified",
+      "availability": "local source verified",
+      "packaged": true,
+      "status": "adapted-style-wrapper-no-render",
+      "brands": [],
+      "defaultBrandReuse": false
+    },
+    {
+      "id": "original-objetos",
+      "source": "Corporacion-Cresova/oficina-ia@273a9ad:estudio-video/videos/_plantilla/src/objetos.js",
+      "sha256": "eed8896b8a08d804f73ca1393f7e71e493f4b96c11412fc4dedaa9fc8341a908",
+      "kind": "source-code",
+      "rights": "repository-provided-by-user; commercial third-party rights not independently verified",
+      "availability": "local source verified",
+      "packaged": false,
+      "status": "reference-only-awaiting-dependency-and-brand-review",
+      "brands": [],
+      "defaultBrandReuse": false
+    },
+    {
+      "id": "original-objetos2",
+      "source": "Corporacion-Cresova/oficina-ia@273a9ad:estudio-video/videos/_plantilla/src/objetos2.js",
+      "sha256": "aadd164f0057cf8ef238b38c097869175ffa5c5800123f584ee9ee029a5ad273",
+      "kind": "source-code",
+      "rights": "repository-provided-by-user; commercial third-party rights not independently verified",
+      "availability": "local source verified",
+      "packaged": false,
+      "status": "reference-only-awaiting-dependency-and-brand-review",
+      "brands": [],
+      "defaultBrandReuse": false
+    },
+    {
+      "id": "original-nucleo",
+      "source": "Corporacion-Cresova/oficina-ia@273a9ad:estudio-video/videos/_plantilla/src/nucleo.js",
+      "sha256": "dfc70dc99a7270aa6f2ae3a48d52312c8887e45750bd4c7c5bcf5e66433e1222",
+      "kind": "source-code",
+      "rights": "repository-provided-by-user; commercial third-party rights not independently verified",
+      "availability": "local source verified",
+      "packaged": false,
+      "status": "reference-only-awaiting-dependency-and-brand-review",
+      "brands": [],
+      "defaultBrandReuse": false
+    },
+    {
+      "id": "original-estudio3d",
+      "source": "Corporacion-Cresova/oficina-ia@273a9ad:estudio-video/videos/_plantilla/src/estudio3d.js",
+      "sha256": "c5e3af4a29b8c66a5d3ef90ce151f22de20adf0727f77d5499a4c771a68574a6",
+      "kind": "source-code",
+      "rights": "repository-provided-by-user; commercial third-party rights not independently verified",
+      "availability": "local source verified",
+      "packaged": false,
+      "status": "reference-only-awaiting-dependency-and-brand-review",
+      "brands": [],
+      "defaultBrandReuse": false
+    }
+  ],
+  "excluded": [
+    "voices",
+    "music",
+    "brand logos",
+    "photos",
+    "paid voice scripts",
+    "protected skill implementation"
+  ],
+  "liveRenderer": "none",
+  "rendererCandidates": [
+    "ffmpeg-silent-animatic",
+    "canvas-cresova-adapted-not-connected"
+  ]
+}

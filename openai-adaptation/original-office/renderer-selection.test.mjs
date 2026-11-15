@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {selectRenderer} from './video/renderer-selection.mjs';
+test('default disconnected, demo requires operator opt-in and separate verification',()=>{assert.equal(selectRenderer(),null);assert.throws(()=>selectRenderer({canvasDemo:true}));assert.throws(()=>selectRenderer({canvasDemo:true,local:true,dependenciesVerified:true}));assert.equal(typeof selectRenderer({canvasDemo:true,dependenciesVerified:true}).render,'function');});
+test('demo rejects absent explicit brief selection before spawning renderer',async()=>{await assert.rejects(selectRenderer({canvasDemo:true,dependenciesVerified:true}).render({brief:{}}),/selección explícita/);});

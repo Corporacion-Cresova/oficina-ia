@@ -1,0 +1,11 @@
+{
+  "observed_local_node_dependency": {"package":"@napi-rs/canvas","version":"0.1.100"},
+  "installed_by_this_work": false,
+  "deployment_dependency_verified": false,
+  "external_binaries": ["ffmpeg", "ffprobe"],
+  "fonts": ["DejaVu Sans regular", "DejaVu Sans bold"],
+  "required_network_at_render": false,
+  "required_model": false,
+  "voice": false,
+  "publication": false
+}

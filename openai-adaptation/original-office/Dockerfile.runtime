@@ -1,0 +1,40 @@
+# REVIEW BUILD ONLY: includes official runtime binaries; authentication stays disabled.
+# Context: oficina-integrated-video. Do not replace a live service without review.
+FROM node:22.16.0-bookworm-slim AS codex-install
+WORKDIR /install
+COPY runtime-package/package.json runtime-package/package-lock.json ./
+RUN npm ci --omit=dev --ignore-scripts --no-audit --no-fund \
+ && node node_modules/@openai/codex/bin/codex.js --version | grep -Fx 'codex-cli 0.167.0-alpha.4' \
+ && bin="$(find node_modules/@openai -type f -path '*/vendor/*/bin/codex')" \
+ && test "$(printf '%s\n' "$bin" | wc -l)" -eq 1 \
+ && test -x "$bin" \
+ && cp -a "$(dirname "$(dirname "$bin")")" /codex-vendor
+
+FROM node:22.16.0-bookworm-slim
+# Exact official Debian ffmpeg version; a missing version fails the build, no fallback.
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ffmpeg=7:5.1.9-0+deb12u1 fonts-dejavu-core ca-certificates \
+ && test "$(dpkg-query -W -f='${Version}' ffmpeg)" = '7:5.1.9-0+deb12u1' \
+ && rm -rf /var/lib/apt/lists/*
+COPY --from=codex-install /codex-vendor/ /opt/codex-vendor/
+RUN ln -s /opt/codex-vendor/bin/codex /usr/local/bin/codex
+RUN /usr/local/bin/codex --version | grep -Fx 'codex-cli 0.167.0-alpha.4' \
+ && mkdir -p /data /home/node/codex-isolated /home/node/empty-workspace \
+ && chown -R node:node /data /home/node/codex-isolated /home/node/empty-workspace \
+ && chmod 700 /data /home/node/codex-isolated /home/node/empty-workspace
+COPY runtime-package/requirements.toml /etc/codex/requirements.toml
+RUN chown root:root /etc/codex/requirements.toml && chmod 644 /etc/codex/requirements.toml
+WORKDIR /app
+ENV NODE_ENV=production HOST=0.0.0.0 PORT=3000 OFFICE_VIDEO_DATA_DIR=/data/video OFFICE_CODEX_BINARY=/usr/local/bin/codex
+COPY --chown=node:node server.mjs start.mjs agents-display.json ./
+COPY --chown=node:node public/ ./public/
+COPY --chown=node:node video/ ./video/
+COPY --chown=node:node codex/ ./codex/
+COPY --chown=node:node scripts/ ./scripts/
+USER node
+# Fail the image build if required tool-disable flags are absent or still enabled.
+RUN node scripts/verify-tool-restrictions.mjs /usr/local/bin/codex
+EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 CMD node -e "require('http').get('http://127.0.0.1:3000/health',r=>{r.resume();process.exit(r.statusCode===200?0:1)}).on('error',()=>process.exit(1))"
+# This startup deliberately never loads owner credentials or connects a model.
+CMD ["node","start.mjs"]
