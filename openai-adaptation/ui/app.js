@@ -1,0 +1,12 @@
+const notice=document.querySelector('#notice');
+const states={'manual-pending':'Pendiente manual','manual-completed':'Completada por usuario',cancelled:'Cancelada'};
+const api=async(url,data)=>{const response=await fetch(url,{credentials:'same-origin',method:data===undefined?'GET':'POST',headers:{'Content-Type':'application/json'},body:data===undefined?undefined:JSON.stringify(data)});const value=await response.json();if(!response.ok)throw new Error(value.error);return value;};
+let busy=false,polling=false,retryKey=null;
+async function refresh(){if(polling)return;polling=true;try{
+const {tasks}=await api('/api/tasks');document.querySelector('#count').textContent=`${tasks.length} tareas`;
+const container=document.querySelector('#tasks');container.replaceChildren();
+for(const task of tasks){const article=document.createElement('article');article.className='task';const head=document.createElement('div');head.className='task-top';const title=document.createElement('h3');title.textContent=task.title;const state=document.createElement('span');state.className='tag';state.textContent=states[task.status];head.append(title,state);article.append(head);
+if(task.status==='manual-pending')for(const [action,label]of [['complete','Marcar realizada'],['cancel','Cancelar']]){const button=document.createElement('button');button.textContent=label;if(action==='cancel')button.className='cancel';button.onclick=async()=>{button.disabled=true;try{await api(`/api/tasks/${task.id}/${action}`,{});await refresh();}catch{notice.textContent='No se confirmó el cambio. Revisa el estado antes de reintentar.';}};article.append(button);}container.append(article);}
+}catch{notice.textContent='No se pudo consultar el registro. Verifica tu sesión o conexión.';}finally{polling=false;}}
+document.querySelector('#task-form').onsubmit=async event=>{event.preventDefault();if(busy)return;busy=true;document.querySelector('#submit').disabled=true;const title=document.querySelector('#title').value;if(!retryKey||retryKey.title!==title)retryKey={title,key:crypto.randomUUID()};try{await api('/api/tasks',{title,key:retryKey.key});event.target.reset();retryKey=null;notice.textContent='Tarea guardada. No se ejecutará automáticamente.';await refresh();}catch{notice.textContent='No se confirmó el guardado. Reintentar la misma tarea no la duplica.';}finally{busy=false;document.querySelector('#submit').disabled=false;}};
+refresh();const timer=setInterval(refresh,1500);window.addEventListener('pagehide',()=>clearInterval(timer));
